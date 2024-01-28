@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/01/28 01:05:50 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/01/28 03:09:28 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@
 # include <unistd.h>
 # include <sys/wait.h>
 # include "../lib/inc/libft.h"
+
+void	verLista(int argc, char *argv[]);
 
 #endif
