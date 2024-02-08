@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/01/28 03:09:07 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/01 10:16:03 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,29 @@
 
 int	main(int argc, char *argv[])
 {
+	t_list **stackA;
+	t_list **stackB;
+
+	(void) stackB;
 	if (argc < 2)
 	{
 		perror("Incorrect number of parameters\n");
 		return (1);
 	}
-	verLista(argc, argv);
+
+	stackA = crear_lista(argc, argv);
+	printf("Prueba 1\n");
+	ver_lista(stackA);
+	
+	printf("Prueba 2\n");
+	swap(stackA);
+	ver_lista(stackA);
+
+	printf("Prueba 2\n");
+	to_bottom(stackA);
+	ver_lista(stackA);
+	
+	free(stackA);
 	
 	return (0);
 }
