@@ -1,0 +1,69 @@
+En C, las listas enlazadas generalmente se implementan utilizando punteros a estructuras.
+Un puntero a una estructura de nodo representa un elemento individual en la lista enlazada.
+
+Las listas enlazadas en C generalmemte se implementan como una serie de nodos donde cada nodo contiene:
+- algun tipo de dato
+- y un puntero al siguiente nodo en la secuencia.
+
+La razon principal por la que los punteros a nodos son punteros dobles en lugar de punteros simples
+es que necesitas modificar el puntero que apunta al nodo en sí, no solo el nodo en sí mismo
+
+En una lista enlazda, para insertar el nuevo nodo al principio de la lista, necesitas modificar el puntero
+que apunta al primer nodo de la lista para que apunte al nuevo nodo. 
+
+Si tu funcion de insercion solo toma un puntero simple al primer nodo (struct Nodo *primero), solo estarias
+modificando una copia local de ese puntero, lo que no afectaría al puntero real fuera de la funcion.
+
+Para modificar el puntero real y actualizarlo al nuevo nodo insertado, necesitas pasar la direccion del puntero,
+lo que se consigue utilizando un puntero doble.
+
+Veamos por ejemplo el caso de los punteros dobles para arrays.
+
+Imaginemos que tenemos:
+
+**ejemplo como ARRAY
+    ejemplo: [["Hola"], ["como"], ["estas"]] 
+
+        - Para acceder al primer elemento (["Hola"]):
+            char *primer_elemento =
+                *ejemplo == ejemplo[0]
+
+        - Para acceder a la primera letra del primer elemento ("H"  (de ["Hola"])):
+            char primera_letra_primer_elemento =
+                *ejemplo[0] == ejemplo[0][0]
+
+        - Para acceder a la segunda letra del primer elemento ("o" (de ["Hola"])):
+            char segunda_letra_primer_elemento =
+                *(ejemplo + 1) == ejemplo[0][1]
+
+        - Para acceder a la segunda letra del segundo elemento ("o" (de ["como"])):
+            char segunda_letra_segundo_elemento = 
+                *(*(ejemplo + 1) + 1) = ejemplo[1][1]
+
+
+**ejemplo como LISTA
+    ejemplo: [["Hola"] -> ["como"] -> ["estas"]]
+
+        Tenemos:
+        - Nodo *primer_nodo
+        - Nodo *siguiente_nodo
+
+        siguiente_nodo = primer_nodo->siguiente;
+        
+
+        - Para acceder al primer nodo (["Hola"]):
+            char *dato_primer_nodo =
+                primer_nodo->dato
+        
+        - Para acceder a la primera letra del primer nodo  ("H"  (de ["Hola"])):
+            char primera_letra_primer_nodo =
+                primer_nodo->dato[0]
+
+        - Para acceder a la segunda letra del primer nodo ("o" (de ["Hola"])):
+            char segunda_letra_primer_nodo =
+                primer_nodo->dato[1];
+
+        - Para acceder a la segunda letra del segundo nodo ("o" (de ["como"])):
+            char segunda_letra_segundo_nodo =
+                siguiente_nodo->dato[1];
+    

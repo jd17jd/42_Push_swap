@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/01 10:16:03 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/08 22:06:57 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int argc, char *argv[])
 	swap(stackA);
 	ver_lista(stackA);
 
-	printf("Prueba 2\n");
+	printf("Prueba 3\n");
 	to_bottom(stackA);
 	ver_lista(stackA);
 	
