@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/01/31 13:48:25 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/10 13:14:05 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@
 # include <sys/wait.h>
 # include "../lib/inc/libft.h"
 
+typedef struct s_node_linked_list // 's_' for struct
+{
+	int							content;
+	int							position;
+	
+	struct s_node_linked_list	*prev;
+	struct s_node_linked_list	*next;
+	
+}	t_stack; // 't_' for type
+
 /* PUSH SWAP AUX */
 void    delete_element(t_list **head, void *ptr);
 t_list	**crear_lista(int argc, char *argv[]);
@@ -29,7 +39,7 @@ void	ver_lista(t_list **start);
 /* MOVEMENTS */
 void	swap(t_list	**stack);
 void	to_bottom(t_list **stack);
-
+void 	to_top(t_list **stack);
 
 
 #endif

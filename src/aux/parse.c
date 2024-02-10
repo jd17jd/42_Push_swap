@@ -1,42 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_swap.c                                     :+:      :+:    :+:   */
+/*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/08 22:06:57 by jvivas-g         ###   ########.fr       */
+/*   Created: 2024/02/10 13:15:40 by jvivas-g          #+#    #+#             */
+/*   Updated: 2024/02/10 14:02:37 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/ft_push_swap.h"
+# include "../../inc/ft_push_swap.h"
 
-int	main(int argc, char *argv[])
+static void	aux_parse(char **args)
 {
-	t_list **stackA;
-	t_list **stackB;
+	//Hacer esta funcion para cuando el programa solo reciba un parametro
+}
 
-	(void) stackB;
+static void	parse(int argc, char *argv[])
+{
+	char	**res;
+	int		i;
+	
+	res = NULL;
+	i = 2;
 	if (argc < 2)
 	{
 		perror("Incorrect number of parameters\n");
-		return (1);
+		exit(1);
 	}
-
-	stackA = crear_lista(argc, argv);
-	printf("Prueba 1\n");
-	ver_lista(stackA);
-	
-	printf("Prueba 2\n");
-	swap(stackA);
-	ver_lista(stackA);
-
-	printf("Prueba 3\n");
-	to_bottom(stackA);
-	ver_lista(stackA);
-	
-	free(stackA);
-	
-	return (0);
+	if (argc == 2)
+	{
+		res = ft_split(argv[1], ' ');
+		aux_parse(res);
+	}
+	else {
+			while (argv[i])
+			{
+				//Comprobar atoi cuando me de mal
+				i++;
+			}
+	}
 }

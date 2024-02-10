@@ -6,18 +6,11 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:27:59 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/08 22:28:04 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/10 13:08:29 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/ft_push_swap.h"
-
-
-//ra --> swap A
-
-//rb --> swap B
-
-//ss --> both
+# include "../../inc/ft_push_swap.h"
 
 
 void	swap(t_list	**stack)
@@ -32,24 +25,40 @@ void	swap(t_list	**stack)
 void	to_bottom(t_list **stack)
 {
 	t_list	*node;
-	t_list	*last;
-
-	node = *stack; // Access the first node of the linked list
-	printf("Nodo inicial: %d\n", ft_atoi(node->content));
-	if (!node) // If the list is empty, there's nothing to do
-		return ;
-	last = ft_lstlast(node); // Find the last node of the list
-	printf("Nodo final: %d\n", ft_atoi(last->content));
-	ft_lstadd_back(stack, node); // Add the first node to the end of the list
-	*stack = (*stack)->next; // Update the head of the list to point to the second node
-	
-	free(node);
-	free(last);
 
 	node = *stack;
-	printf("Nuevo nodo inicial: %d\n", ft_atoi(node->content));
-	last = ft_lstlast(node);
-	printf("Nuevo nodo final: %d\n", ft_atoi(last->content));
-
-	exit(1);
+	if (!node)
+		return ;
+		
+	*stack = (*stack)->next;
+	
+	ft_lstadd_back(stack, ft_lstnew(ft_strdup(node->content)));
+    free(node);
 }
+
+void 	to_top(t_list **stack)
+{
+	t_list	*last;
+	t_list	*second_last;
+
+	last = ft_lstlast(*stack);
+	if (!last)
+		return ;
+
+	if (*stack == last) { // Si solo hay un nodo en la lista
+        ft_lstdelone(last, &free); // Eliminar el último nodo
+        *stack = NULL; // Establecer el puntero a la lista como NULL
+        return;
+    }
+
+	ft_lstadd_front(stack, ft_lstnew(ft_strdup(last->content)));
+
+	second_last = *stack;
+    while (second_last->next != last) {
+        second_last = second_last->next;
+    }
+
+    second_last->next = NULL; // Establecer el enlace del segundo último nodo a NULL
+    ft_lstdelone(last, &free); // Eliminar el último nodo
+}
+

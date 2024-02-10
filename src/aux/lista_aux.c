@@ -6,11 +6,11 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 03:05:56 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/01/31 13:45:54 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/10 13:16:11 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../inc/ft_push_swap.h"
+# include "../../inc/ft_push_swap.h"
 
 void delete_element(t_list **head, void *ptr)
 {
