@@ -46,7 +46,6 @@ ALGORITMO:
 
 
 
-
     4. Inicializar StackA apilando cada numero de entrada como un nodo de StackA
         Manejar los erroes de los posibles nodos a apilar (overflow, duplicados, elementos que no sean long int)
         Los nodos deben ser long int
