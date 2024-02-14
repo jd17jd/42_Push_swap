@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/10 13:25:04 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/14 22:27:27 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ int	main(int argc, char *argv[])
 	
 	stackA = NULL;
 	stackB = NULL;
-	
+	if (argc < 2)
+	{
+		perror("Incorrect number of parameters\n");
+		return(1);
+	}
 	parse(argc, argv);
-	
-	
-	
 	return (0);
 }

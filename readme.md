@@ -36,7 +36,7 @@ EXPLICACION DEL DESAROLLO DEL PROYECTO
 
 - ALGORITMO:
     1. Declaracion a nuestras dos estructuras de datos / listas enlazadas. Una para A y otra para B.
-        Inizializar ambas pilas a NULL para evitar comportamiento indefinido.
+        Inicializar ambas pilas a NULL para evitar comportamiento indefinido.
 
     2. Control de errores entrada. Debe haber dos o mas argumentos y el segundo no puede ser nulo
 

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/10 13:14:05 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:38:51 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct s_node_linked_list // 's_' for struct
 void    delete_element(t_list **head, void *ptr);
 t_list	**crear_lista(int argc, char *argv[]);
 void	ver_lista(t_list **start);
+
+void	parse(int argc, char *argv[]);
 
 /* MOVEMENTS */
 void	swap(t_list	**stack);

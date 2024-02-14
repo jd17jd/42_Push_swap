@@ -6,7 +6,7 @@
 #    By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 18:03:30 by jvivas-g          #+#    #+#              #
-#    Updated: 2024/01/28 01:19:28 by jvivas-g         ###   ########.fr        #
+#    Updated: 2024/02/14 22:29:43 by jvivas-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ COLOR_VERDE = "\033[32m"
 SRC = src
 
 # Lista de archivos fuente
-SOURCES := $(wildcard $(SRC)/*.c)
+SOURCES := $(wildcard $(SRC)/*.c) $(wildcard $(SRC)*/*/*.c)
+
 
 # Libreria
 LIBFT = lib/libft.a

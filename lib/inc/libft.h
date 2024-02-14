@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 13:23:01 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/01/31 12:31:11 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/14 21:17:55 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_list
 {
