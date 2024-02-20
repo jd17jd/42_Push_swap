@@ -27,14 +27,11 @@ ALGORITMO:
 
             - Si tiene numeros duplicados
                 - ./ejecutable "1 1"
-                - ./ejecutable 1 2 3 4 4
+               Œ - ./ejecutable 1 2 3 4 4
 
             - Si tiene numeros mayores a MAXINT
                 - ./ejecutable "9999999999"
                 - ./ejecutable 9999999999 999999999
-
-
-    [[1], [2], [3], [4], [5]]
 
         ALGORITMO:
         - Comprobar que:
@@ -45,11 +42,12 @@ ALGORITMO:
             ft_isdup
 
 
-
     4. Inicializar StackA apilando cada numero de entrada como un nodo de StackA
         Manejar los erroes de los posibles nodos a apilar (overflow, duplicados, elementos que no sean long int)
         Los nodos deben ser long int
         Apilar los nodos a StackA
+
+        
 
     5. Comprobar si StackA está ordenado
         Si no está ordenado implementar nuestro algoritmo

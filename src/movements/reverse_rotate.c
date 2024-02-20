@@ -6,11 +6,11 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:01 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/10 14:00:13 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:34:50 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//reverse rotation
+//REVERSE ROTATION
 
 //rra
 

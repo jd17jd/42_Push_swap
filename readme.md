@@ -64,5 +64,4 @@ Proximo día:
 - Hacer todos los movimientos
 - Añadir en la carpeta lib el gnl y printf bien
 - Actualizar el .h
-- Mirar el parseo bien
 - Terminar el main
