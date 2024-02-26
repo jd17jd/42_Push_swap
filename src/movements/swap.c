@@ -6,35 +6,72 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:07 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/20 22:01:26 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/26 20:05:53 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../inc/ft_push_swap.h"
 
 //SWAP
-void	swap(t_stack	**stack)
+void	swap(t_node **stack)
 {
+    // verificacion nodos anteriores
+
     if (!*stack || !(*stack)->next)
         return ;
 
-    *stack = (*stack)->next; //cabeza de la pila -> al siguiente nodo, 2do nodo = nueva cabeza de la pila.
-    (*stack)->prev->prev = *stack; //puntero prev del nodo original (ahora el segundo nodo) -> al nuevo primer nodo (el que solía ser el segundo).
-    (*stack)->prev->next = (*stack)->next; //actualiza el puntero next del nodo anterior al nuevo primer nodo para que apunte al siguiente nodo en la pila.
+    // 1 - 2 - 3 - 4 - ...
 
-    if((*stack)->next) //verifica si hay un siguiente nodo después del nuevo primer nodo. Si es así, actualiza el puntero prev del siguiente nodo para que apunte al nodo anterior (que es ahora el primer nodo).
+    *stack = (*stack)->next; //puntero cabeza de pila = puntero al siguiente nodo
+    // *stack = *2* - 3 - 4 - ...
+
+    (*stack)->prev->prev = *stack;
+    // puntero prev de 1 = puntero de la cabeza de pila (=2)
+    // 2 <- 1
+
+    (*stack)->prev->next = (*stack)->next;
+    // puntero next de 1 = puntero next de la cabeza de pila (=3)
+    // 1 -> 3
+
+    // 2 <- 1 -> 3
+
+    // verificacion nodos posteriores
+
+    if((*stack)->next) 
         (*stack)->next->prev = (*stack)->prev;
-    (*stack)->next = (*stack)->prev; //establece el puntero next del nuevo primer nodo al nodo anterior (que ahora es el segundo nodo).
-    (*stack)->prev = NULL; //establece el puntero prev del nuevo primer nodo a NULL ya que ahora es el primer elemento en la pila.
+    // puntero prev de 3 = puntero previo de la cabeza de la pila (=1)
+    // 1 <- 3
 
+    (*stack)->next = (*stack)->prev;
+    // puntero next de 2 = puntero previo de la cabeza de la pila (=1)
+    // 2 -> 1
+
+    (*stack)->prev = NULL;
+    // puntero previo de 2 = NUll
+    // null <- 2
+
+    // NULL <- 2 <-> 1 <-> 3
 }
 
 
 //sa
-
+void    sa(t_node **a)
+{
+    swap(a);
+    printf("sa\n");
+}
 
 //sb
-
+void    sb(t_node **b)
+{
+    swap(b);
+    printf("sb\n");
+}
 
 //ss
-
+void    ss(t_node **a, t_node **b)
+{
+    swap(a);
+    swap(b);
+    printf("ss\n");
+}
