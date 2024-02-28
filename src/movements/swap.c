@@ -6,13 +6,13 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:07 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/26 20:05:53 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/28 11:45:36 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../inc/ft_push_swap.h"
 
-//SWAP
+//SWAP - To check
 void	swap(t_node **stack)
 {
     // verificacion nodos anteriores

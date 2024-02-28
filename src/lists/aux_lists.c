@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:22:13 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/27 22:40:59 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/02/28 11:17:03 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	node_add_back(t_node **lst, t_node *new)
 {
 	t_node	*last;
 
-	if (*lst == NULL)
+	if (!*lst)
 		*lst = new;
 	else
 	{
@@ -25,7 +25,7 @@ void	node_add_back(t_node **lst, t_node *new)
 		last->next = new;
 		new->prev = last;
 	}
-}
+} //oK
 
 //ft_lstadd_front
 void	node_add_front(t_node **lst, t_node *new)
@@ -34,7 +34,8 @@ void	node_add_front(t_node **lst, t_node *new)
 	if (*lst)
 		(*lst)->prev = new;
 	*lst = new;
-}
+	// (*lst)->prev == NULL;
+} //OK
 
 //ft_lstclear
 void	node_clear(t_node **lst)
@@ -48,14 +49,30 @@ void	node_clear(t_node **lst)
 		*lst = aux;
 	}
 	*lst = NULL;
-}
+} //OK
 
 //ft_lstdelone
-void	node_delone(t_node *lst)
+void    ft_node_delete(t_node **lst, t_node *node)
+{
+    if (!node->prev)
+        node->prev->next = node->next;
+    else
+        *lst = node->next;
+    if (node->next)
+        node->next->prev = node->prev;
+    free(node);
+}
+
+/*
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (lst)
+	{
+		del(lst -> content);
 		free(lst);
+	}
 }
+*/
 
 //ft_lstiter
 void	node_iter(t_node *lst, void (*f)(int))
