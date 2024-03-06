@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:25:09 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/28 11:28:58 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:06:52 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ t_node	*node_map(t_node *lst, t_node *(*f)(t_node *), void (*del)(t_node *))
 } //To-check
 
 //ft_lstnew
-t_node	*node_new(int content, int position)
+t_node	*node_new(int position, int content)
 {
 	t_node	*node;
 

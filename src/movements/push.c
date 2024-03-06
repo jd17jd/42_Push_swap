@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:57:57 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 11:49:45 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:09:43 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ void	push(t_node **stackA, t_node **stackB)
 //pa. Cima de StackB a la cima de StackA
 void    pa(t_node **a, t_node **b)
 {
-	push(*a, *b);
+	push(a, b);
 	printf("pa\n");
 }
 
 //pb. Cima de StackA a la cima de StackB
 void    pb(t_node **a, t_node **b)
 {
-	push(*b, *a);
+	push(b, a);
 	printf("pb\n");
 }

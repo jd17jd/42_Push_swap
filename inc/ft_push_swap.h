@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 11:32:43 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:07:21 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,15 @@ typedef struct s_node // 's_' for struct
 /* PUSH SWAP AUX */
 void    delete_element(t_list **head, void *ptr);
 t_list	**crear_lista(int argc, char *argv[]);
-void	ver_lista(t_list **start);
+void	aux_ver_lista(t_list **start);
 
+
+/* AUX OK */
+t_node    **init(int argc, char *argv[]);
+void	ver_lista(t_node **start);
+
+
+/* PARSE */
 int 	aux_atoi(const char *str);
 void	parse(int argc, char *argv[]);
 
@@ -50,7 +57,7 @@ void    node_delete(t_node **lst, t_node *node);
 void	node_iter(t_node *lst, void (*f)(int));
 t_node	*node_last(t_node *lst);
 t_node	*node_map(t_node *lst, t_node *(*f)(t_node *), void (*del)(t_node *));
-t_node	*node_new(int content, int position);
+t_node	*node_new(int position, int content);
 int	node_size(t_node *lst);
 
 
@@ -64,6 +71,15 @@ void    rotate(t_node **stack);
 void    ra(t_node **a);
 void    rb(t_node **b);
 void    rr(t_node **a, t_node **b);
+
+void    rev_rotate(t_node **stack);
+void    rra(t_node **a);
+void    rrb(t_node **b);
+void    rrr(t_node **a, t_node **b);
+
+void	push(t_node **stackA, t_node **stackB);
+void    pa(t_node **a, t_node **b);
+void    pb(t_node **a, t_node **b);
 
 
 /* MOVEMENTS */

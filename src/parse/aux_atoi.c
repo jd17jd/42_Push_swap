@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 19:23:05 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/20 19:24:56 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:15:14 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int aux_atoi(const char *str)
 	int			digit;
 	
 	i = 0;
-	res = 1;
+	res = 0;
 	sign = 1;
 	digit = -1;
 	while(str[i] && aux_space(str[i]))
@@ -59,19 +59,19 @@ int aux_atoi(const char *str)
 	while(ft_isdigit(str[i])) //Conversion de digitos a entero
 	{
 		digit = str[i] - '0';
-		res *= 10 + digit;
+		res = res * 10 + digit;
 		if (aux_overflow(res) == 1)
-		{ //Revisar logica de esto
+		{
 			perror("Error 3. Number out of range\n");
 			exit(3);
 		}
 		i++;
 	}
+	
 	if (digit == -1)
 	{
 		perror("Error 4. No number to convert\n");
 		exit (4);
 	}
-	
 	return (res * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 03:05:56 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/10 13:16:11 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:53:12 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_list	**crear_lista(int argc, char *argv[])
 	return (res);
 }
 
-void	ver_lista(t_list **start) {
+void	aux_ver_lista(t_list **start) {
 	int		i;
 	t_list	*actual;
 	t_list	*next_node;

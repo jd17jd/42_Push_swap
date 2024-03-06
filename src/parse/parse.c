@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:15:40 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/20 20:21:55 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:45:08 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	aux_parse(char *args[])
 	{
 		if (num_occurences(enteros, enteros[i]) > 1)
 		{ 
-			perror("Error 3. Duplicate values\n");
+			perror("Error 5. Duplicate values\n");
 			exit(3);
 		}
 		i++;
@@ -74,12 +74,12 @@ void	parse(int argc, char *argv[])
 	res = ft_split(argv[1], ' ');
 	if (!res)
 	{
-		perror("Error 5. Impossible to create the array\n");
+		perror("Error 6. Impossible to create the array\n");
 		exit(5);
 	}
-	if (res[0] == NULL)
+	if (!res[0])
 	{
-		perror("Error 6. 2nd value is NULL\n");
+		perror("Error 7. 2nd value is NULL\n");
 		exit(6);
 	}
 	aux_parse(res);

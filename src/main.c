@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/19 21:58:39 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:18:34 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stack	**stackA;
-	t_stack	**stackB;
+	t_node	**stackA;
+	t_node	**stackB;
 	
 	stackA = NULL;
 	stackB = NULL;
@@ -28,5 +28,31 @@ int	main(int argc, char *argv[])
 		return(1);
 	}
 	parse(argc, argv);
+	
+	stackA = init(argc, argv);
+	if (!(*stackA))
+	{
+		perror("Error 8. Failed to create list\n");
+		free(stackA);
+		return (8);
+	}
+	
+	printf("Prueba 1\n");
+	ver_lista(stackA);
+	
+	printf("Prueba 2\n");
+	sa(stackA);
+	ver_lista(stackA);
+
+/* 	printf("Prueba 3\n");
+	to_bottom(stackA);
+	ver_lista(stackA);
+
+	printf("Prueba 4\n");
+	to_top(stackA);
+	ver_lista(stackA); */
+
+	free(stackA);
+	
 	return (0);
 }

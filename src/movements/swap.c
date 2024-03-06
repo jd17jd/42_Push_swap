@@ -6,15 +6,15 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:07 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 11:54:14 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:32:27 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../inc/ft_push_swap.h"
 
 //SWAP
-/* 
-oid    swap(t_node **stack)
+
+/* void    swap(t_node **stack)
 {
     t_node *tmp;
 
@@ -30,8 +30,7 @@ oid    swap(t_node **stack)
         tmp->next->prev = tmp;
     tmp->next = (*stack)->next;
     (*stack)->next = tmp;
-}
-*/
+} */
 void    swap(t_node **stack)
 {
     t_node *tmp;

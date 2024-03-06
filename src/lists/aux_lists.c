@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:22:13 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 11:32:32 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 12:08:16 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	node_add_front(t_node **lst, t_node *new)
 	if (*lst)
 		(*lst)->prev = new;
 	*lst = new;
-	(*lst)->prev == NULL;
+	(*lst)->prev = NULL;
 } //OK
 
 //ft_lstclear

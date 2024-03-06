@@ -60,8 +60,9 @@ EXPLICACION DEL DESAROLLO DEL PROYECTO
 
 
 Proximo día:
-
-- Hacer todos los movimientos
 - Añadir en la carpeta lib el gnl y printf bien
-- Actualizar el .h
 - Terminar el main
+
+
+Fallos:
+1. ./push_swap "1 2 3" "4 4 5" 6
