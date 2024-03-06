@@ -6,69 +6,65 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:07 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/28 11:45:36 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:54:14 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../inc/ft_push_swap.h"
 
-//SWAP - To check
-void	swap(t_node **stack)
+//SWAP
+/* 
+oid    swap(t_node **stack)
 {
-    // verificacion nodos anteriores
+    t_node *tmp;
 
     if (!*stack || !(*stack)->next)
         return ;
+        
+    tmp = *stack;
+    *stack = (*stack)->next;
+    if (*stack)
+        (*stack)->prev = NULL;
+        
+    if (tmp->next)
+        tmp->next->prev = tmp;
+    tmp->next = (*stack)->next;
+    (*stack)->next = tmp;
+}
+*/
+void    swap(t_node **stack)
+{
+    t_node *tmp;
 
-    // 1 - 2 - 3 - 4 - ...
-
-    *stack = (*stack)->next; //puntero cabeza de pila = puntero al siguiente nodo
-    // *stack = *2* - 3 - 4 - ...
-
-    (*stack)->prev->prev = *stack;
-    // puntero prev de 1 = puntero de la cabeza de pila (=2)
-    // 2 <- 1
-
-    (*stack)->prev->next = (*stack)->next;
-    // puntero next de 1 = puntero next de la cabeza de pila (=3)
-    // 1 -> 3
-
-    // 2 <- 1 -> 3
-
-    // verificacion nodos posteriores
-
-    if((*stack)->next) 
-        (*stack)->next->prev = (*stack)->prev;
-    // puntero prev de 3 = puntero previo de la cabeza de la pila (=1)
-    // 1 <- 3
-
-    (*stack)->next = (*stack)->prev;
-    // puntero next de 2 = puntero previo de la cabeza de la pila (=1)
-    // 2 -> 1
-
-    (*stack)->prev = NULL;
-    // puntero previo de 2 = NUll
-    // null <- 2
-
-    // NULL <- 2 <-> 1 <-> 3
+    if (!*stack || !(*stack)->next)
+        return ;
+    
+    tmp = (*stack)->next;
+    (*stack)->next = tmp->next;
+    if (tmp->next)
+        tmp->next->prev = *stack;
+    //node_delete(stack, tmp);
+    
+    node_add_front(stack, node_new(tmp->content, tmp->position));
+    
+    free(tmp);
 }
 
-
-//sa
+//sa. Rotar los 2 nºs de la cima (en stackA)
 void    sa(t_node **a)
 {
     swap(a);
     printf("sa\n");
 }
 
-//sb
+//sb. Rotar los 2 nºs de la cima (en stackB)
 void    sb(t_node **b)
 {
     swap(b);
     printf("sb\n");
 }
 
-//ss
+//ss. Ejecutar sa y sb al mismo tiempo
 void    ss(t_node **a, t_node **b)
 {
     swap(a);

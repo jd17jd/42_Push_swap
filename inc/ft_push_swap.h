@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/28 11:26:34 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 11:32:43 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	parse(int argc, char *argv[]);
 void	node_add_back(t_node **lst, t_node *new);
 void	node_add_front(t_node **lst, t_node *new);
 void	node_clear(t_node **lst);
-void    ft_node_delete(t_node **lst, t_node *node);
+void    node_delete(t_node **lst, t_node *node);
 void	node_iter(t_node *lst, void (*f)(int));
 t_node	*node_last(t_node *lst);
 t_node	*node_map(t_node *lst, t_node *(*f)(t_node *), void (*del)(t_node *));

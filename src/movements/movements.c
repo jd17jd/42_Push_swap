@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/30 14:27:59 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/02/27 22:37:36 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 10:14:45 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ void 	to_top(t_list **stack)
 	last = ft_lstlast(*stack);
 	if (!last)
 		return ;
+
 
 	if (*stack == last) { // Si solo hay un nodo en la lista
         ft_lstdelone(last, &free); // Eliminar el último nodo
