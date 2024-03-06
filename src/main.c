@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 13:51:28 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 23:51:53 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	main(int argc, char *argv[])
 	
 	printf("Stack B\n");
 	ver_lista(stackB);
+	printf("\n");
 	
 	
 	printf("PRUEBA 2\n");
@@ -58,6 +59,7 @@ int	main(int argc, char *argv[])
 	
 	printf("Stack B\n");
 	ver_lista(stackB);
+	printf("\n");
 
 
 	printf("PRUEBA 3\n");
@@ -67,6 +69,7 @@ int	main(int argc, char *argv[])
 	
 	printf("Stack B\n");
 	ver_lista(stackB);
+	printf("\n");
 
 
 	printf("PRUEBA 4\n");
@@ -76,6 +79,7 @@ int	main(int argc, char *argv[])
 	
 	printf("Stack B\n");
 	ver_lista(stackB);
+	printf("\n");
 	
 	
 	printf("PRUEBA 5\n");
@@ -85,6 +89,7 @@ int	main(int argc, char *argv[])
 	
 	printf("Stack B\n");
 	ver_lista(stackB);
+	printf("\n");
 
 /* 	printf("PRUEBA 3\n");
 	to_bottom(stackA);

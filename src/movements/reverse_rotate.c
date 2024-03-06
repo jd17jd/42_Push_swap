@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:01 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 13:52:05 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/07 00:08:43 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,21 @@ void	rev_rotate(t_node **stack)
 //rra. Base a la cima (en stackA)
 void	rra(t_node **a)
 {
-	rotate(a);
+	rev_rotate(a);
 	printf("rra\n");
 }
 
 //rrb. Base a la cima (en stackB)
 void	rrb(t_node **b)
 {
-    rotate(b);
+    rev_rotate(b);
     printf("rrb\n");
 }
 
 //rrr
 void    rrr(t_node **a, t_node **b)
 {
-    rotate(a);
-    rotate(b);
+    rev_rotate(a);
+    rev_rotate(b);
     printf("rrr\n");
 }
