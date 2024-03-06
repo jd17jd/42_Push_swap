@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:07 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 13:32:27 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:40:51 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 //SWAP
 
-/* void    swap(t_node **stack)
+void    swap(t_node **stack)
 {
     t_node *tmp;
 
@@ -30,8 +30,8 @@
         tmp->next->prev = tmp;
     tmp->next = (*stack)->next;
     (*stack)->next = tmp;
-} */
-void    swap(t_node **stack)
+}
+/* void    swap(t_node **stack)
 {
     t_node *tmp;
 
@@ -39,6 +39,7 @@ void    swap(t_node **stack)
         return ;
     
     tmp = (*stack)->next;
+    
     (*stack)->next = tmp->next;
     if (tmp->next)
         tmp->next->prev = *stack;
@@ -47,7 +48,7 @@ void    swap(t_node **stack)
     node_add_front(stack, node_new(tmp->content, tmp->position));
     
     free(tmp);
-}
+} */
 
 //sa. Rotar los 2 nºs de la cima (en stackA)
 void    sa(t_node **a)

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 13:18:34 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/06 13:51:28 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ int	main(int argc, char *argv[])
 	
 	stackA = NULL;
 	stackB = NULL;
-	(void) stackA;
-	(void) stackB;
 	
 	if (argc < 2)
 	{
@@ -36,15 +34,59 @@ int	main(int argc, char *argv[])
 		free(stackA);
 		return (8);
 	}
-	
-	printf("Prueba 1\n");
-	ver_lista(stackA);
-	
-	printf("Prueba 2\n");
-	sa(stackA);
-	ver_lista(stackA);
 
-/* 	printf("Prueba 3\n");
+	stackB = init(argc, argv);
+	if (!(*stackA))
+	{
+		perror("Error 9. Failed to create list\n");
+		free(stackA);
+		return (9);
+	}
+	
+	printf("PRUEBA 1\n");
+	printf("Stack A\n");
+	ver_lista(stackA);
+	
+	printf("Stack B\n");
+	ver_lista(stackB);
+	
+	
+	printf("PRUEBA 2\n");
+	sa(stackA);
+	printf("Stack A\n");
+	ver_lista(stackA);
+	
+	printf("Stack B\n");
+	ver_lista(stackB);
+
+
+	printf("PRUEBA 3\n");
+	ra(stackA);
+	printf("Stack A\n");
+	ver_lista(stackA);
+	
+	printf("Stack B\n");
+	ver_lista(stackB);
+
+
+	printf("PRUEBA 4\n");
+	rra(stackA);
+	printf("Stack A\n");
+	ver_lista(stackA);
+	
+	printf("Stack B\n");
+	ver_lista(stackB);
+	
+	
+	printf("PRUEBA 5\n");
+	pa(stackA, stackB);
+	printf("Stack A\n");
+	ver_lista(stackA);
+	
+	printf("Stack B\n");
+	ver_lista(stackB);
+
+/* 	printf("PRUEBA 3\n");
 	to_bottom(stackA);
 	ver_lista(stackA);
 
