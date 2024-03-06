@@ -6,29 +6,13 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/07 00:29:10 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/07 00:31:05 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../inc/ft_push_swap.h"
 
 //ROTATE
-/* void    rotate(t_node **stack)
-{
-	t_node *tmp;
-
-    if (!*stack || !(*stack)->next)
-        return ;
-        
-    tmp = *stack;
-	*stack = (*stack)->next;
-    (*stack)->prev = NULL;
-    //node_delete(stack, tmp);
-    
-	node_add_back(stack, node_new(tmp->content, tmp->position));
-	
-    free(tmp);
-} */
 void    rotate(t_node **stack)
 {
     t_node *tmp;

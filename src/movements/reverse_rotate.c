@@ -6,14 +6,13 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:01 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/07 00:08:43 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/07 00:31:24 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../inc/ft_push_swap.h"
 
 // REVERSE ROTATION
-
 void	rev_rotate(t_node **stack)
 {
     t_node *last;
@@ -28,28 +27,11 @@ void	rev_rotate(t_node **stack)
     if (last->prev)
         last->prev->next = NULL;
 
-    // Move the last node to the top of the stack.
     last->prev = NULL;
     last->next = *stack;
     (*stack)->prev = last;
     *stack = last;
 }
-/* void    rev_rotate(t_node **stack)
-{
-    t_node *tmp;
-    
-    if (!*stack || !(*stack)->next)
-        return ;
-    
-    tmp = node_last(*stack);
-    tmp->prev->next = NULL;
-    tmp->prev = NULL;
-    //node_delete(stack, tmp);
-    
-    node_add_front(stack, node_new(tmp->content, tmp->position));
-    
-    free(tmp);    
-} */
 
 //rra. Base a la cima (en stackA)
 void	rra(t_node **a)
