@@ -1,7 +1,7 @@
 INFORMACIÓN IMPORTANTE AQUI:
 - https://youtu.be/wRvipSG4Mmk?si=Rey3vNnSwop5HVAW
 - https://medium.com/@ayogun/push-swap-c1f5d2d41e97
-
+- https://medium.com/nerd-for-tech/push-swap-tutorial-fa746e6aba1e
 
 EXPLICACION DEL DESAROLLO DEL PROYECTO
 
