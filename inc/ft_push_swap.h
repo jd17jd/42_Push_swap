@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 13:07:21 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:45:18 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@ typedef struct s_node // 's_' for struct
 }	t_node; // 't_' for type
 
 
-/* PUSH SWAP AUX */
-void    delete_element(t_list **head, void *ptr);
-t_list	**crear_lista(int argc, char *argv[]);
-void	aux_ver_lista(t_list **start);
+/* ALGORITHM */
+int		is_ordered(t_node **stack);
+void    sort_3_elements(t_node **stack);
 
 
-/* AUX OK */
-t_node    **init(int argc, char *argv[]);
+/* AUX */
+t_node	**init(int argc, char *argv[]);
 void	ver_lista(t_node **start);
 
 
@@ -58,7 +57,7 @@ void	node_iter(t_node *lst, void (*f)(int));
 t_node	*node_last(t_node *lst);
 t_node	*node_map(t_node *lst, t_node *(*f)(t_node *), void (*del)(t_node *));
 t_node	*node_new(int position, int content);
-int	node_size(t_node *lst);
+int		node_size(t_node *lst);
 
 
 /* MOVEMENTS OK */
@@ -81,11 +80,9 @@ void	push(t_node **stackA, t_node **stackB);
 void    pa(t_node **a, t_node **b);
 void    pb(t_node **a, t_node **b);
 
-
-/* MOVEMENTS */
-void	to_swap(t_list	**stack);
-void	to_bottom(t_list **stack);
-void 	to_top(t_list **stack);
+/* PRUEBAS */
+void 	pruebas_movements(t_node **stackA, t_node **stackB);
+void	pruebas_algorithm(t_node **stackA, t_node **stackB);
 
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/07 00:46:15 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:46:00 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,20 @@ int	main(int argc, char *argv[])
 	stackA = NULL;
 	stackB = NULL;
 
-	(void) stackB;
+	// (void) stackA;
+	// (void) stackB;
 	
 	stackA = init(argc, argv);
-	if (!(*stackA))
+	// stackB = init(argc, argv);
+	if (!*stackA)
 	{
 		perror("Error 8. Failed to create list\n");
 		free(stackA);
 		return (8);
 	}
+
+	pruebas_movements(stackA, stackB);
+	pruebas_algorithm(stackA, stackB);
 	
 	free(stackA);
 	free(stackB);

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 13:07:06 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:46:07 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ void	ver_lista(t_node **start)
 	int		i;
 	t_node	*actual;
 	t_node	*next_node;
+
+	if (!start || !*start)
+		return ;
 
 	i = 0;
 	actual = start[0];

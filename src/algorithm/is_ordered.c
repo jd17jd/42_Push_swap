@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:48:00 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/07 01:41:00 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/08 03:49:03 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 int	is_ordered(t_node **stack)
 {
     t_node	*aux;
+
+    if (!stack)
+        return (1);
 
     aux = *stack;
     while (aux->next)
