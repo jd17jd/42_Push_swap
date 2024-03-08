@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:48:00 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/08 03:49:03 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:18:33 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,31 +29,38 @@ int	is_ordered(t_node **stack)
     return (0);
 }
 
-void    sort_3_elements(t_node **stack)
+t_node  *find_highest(t_node **stack)
 {
-    int a;
-    int b;
-    int c;
+    t_node  *res;
+    t_node  *actual;
 
-    a = (*stack)->content;
-    b = (*stack)->next->content;
-    c = (*stack)->next->next->content;
-    if (a > b && b < c && a < c)
-        sa(stack);
-    else if (a > b && b > c && a > c)
-    {
-        sa(stack);
-        rra(stack);
+    if (*stack == NULL) {
+        return NULL;
     }
-    else if (a > b && b > c && a < c)
-        ra(stack);
-    else if (a < b && b > c && a > c)
+
+    actual = *stack;
+    res = actual;
+    
+    while (actual)
     {
-        sa(stack);
-        ra(stack);
+        if (actual->content > res->content)
+            res = actual;
+        actual = actual->next;
     }
-    else if (a < b && b > c && a < c)
+    return(res);
+}
+
+void    sort_three_elements(t_node **stack)
+{
+    t_node  *highest;
+
+    highest = find_highest(stack);
+    if (*stack == highest)
+        ra(stack);
+    else if ((*stack)->next == highest)
         rra(stack);
+    if ((*stack)->content > (*stack)->next->content)
+        sa(stack);
 }
 
 
