@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:48:00 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/08 15:18:33 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:50:24 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,32 @@ void    sort_three_elements(t_node **stack)
         rra(stack);
     if ((*stack)->content > (*stack)->next->content)
         sa(stack);
+}
+
+
+void    sort_five_elements(t_node **stackA, t_node **stackB)
+{
+    int i;
+    int size;
+    t_node  *highest;
+
+    i = 0;
+    size = ft_lstsize(*stackA);
+    while (i < size - 3)
+    {
+        highest = find_highest(stackA);
+        if (*stackA == highest)
+            ra(stackA);
+        else if ((*stackA)->next == highest)
+            rra(stackA);
+        if ((*stackA)->content > (*stackA)->next->content)
+            sa(stackA);
+        pb(stackA, stackB);
+        i++;
+    }
+    sort_three_elements(stackA);
+    pa(stackA, stackB);
+    pa(stackA, stackB);
 }
 
 
