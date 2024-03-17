@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/16 21:06:06 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/17 21:00:07 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ typedef struct s_node // 's_' for struct
 int		is_ordered(t_node **stack);
 t_node  *find_highest(t_node **stack);
 void    sort_three_elements(t_node **stack);
+void    sort_five_elements(t_node **stackA, t_node **stackB);
+void    sort_big_stack(t_node **stackA, t_node **stackB);
+
+void	order_stack(t_node **stackA, t_node **stackB);
+
 
 
 /* AUX */

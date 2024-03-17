@@ -76,3 +76,8 @@ Proximo día:
 
 Fallos:
 1. ./push_swap "1 2 3" "4 4 5" 6
+2. Revisar el método "sort_five_elements" --> Cuando está en orden no debería hacer nada
+3. Ver por qué en pruebas.c despues de hacer movimientos no imprime la lista completa sino q solo muestra el último
+    5. Revisar el PUSH (Siempre que hago un push, borro un elemento de la lista)
+    6. REVISAR COMO INICIALIZAR LA STACK B
+4. revisar sort_big_stack -> Da segmentation fault

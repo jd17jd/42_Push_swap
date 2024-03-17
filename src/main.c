@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/15 23:36:09 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/18 00:06:40 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ int	main(int argc, char *argv[])
 	aux = parse(argc, argv);
 	
 	stackA = init(argc, argv, aux);
-	// stackB = init(argc, argv);
+	stackB = ft_calloc(1, sizeof(t_node *));
+	node_add_back(stackB, NULL);
 	if (!*stackA)
 	{
 		perror("Error 8. Failed to create list\n");
@@ -39,10 +40,13 @@ int	main(int argc, char *argv[])
 		return (8);
 	}
 	
-	ver_lista(stackA);
+	//ver_lista(stackA);
+	// order_stack(stackA, stackB);
+	// printf("Despues de haber sido ordenado\n");
+	// ver_lista(stackA);
 
 	// pruebas_movements(stackA, stackB);
-	// pruebas_algorithm(stackA, stackB);
+	pruebas_algorithm(stackA, stackB);
 	
 	free(stackA);
 	free(stackB);

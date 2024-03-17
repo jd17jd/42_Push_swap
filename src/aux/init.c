@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/16 21:02:50 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/17 23:42:53 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,15 @@ t_node    **init(int argc, char *argv[], int *aux)
 	int		i;
 	int		num_args;
 	t_node	**res;
+	t_node	*node;
 
 	i = 1;
 	num_args = number_arguments(argc, argv);
 	order_array(aux, num_args);
-	res = ft_calloc(argc, sizeof(t_node *));
+	res = ft_calloc(1, sizeof(t_node *));
 	while(argv[i])
 	{
-		t_node *node = node_new(aux[i - 1], aux_atoi(argv[i]));
+		node = node_new(aux[i - 1], aux_atoi(argv[i]));
 		if (node)
 			node_add_back(res, node);
 		i++;
