@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/08 14:49:43 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/16 21:06:06 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_node // 's_' for struct
 {
 	int				content;
 	int				position;
-	
 	struct s_node	*prev;
 	struct s_node	*next;
 	
@@ -36,18 +35,18 @@ typedef struct s_node // 's_' for struct
 /* ALGORITHM */
 int		is_ordered(t_node **stack);
 t_node  *find_highest(t_node **stack);
-void    sort_3_elements(t_node **stack);
 void    sort_three_elements(t_node **stack);
 
 
 /* AUX */
-t_node	**init(int argc, char *argv[]);
+t_node   **init(int argc, char *argv[], int *aux);
 void	ver_lista(t_node **start);
 
 
 /* PARSE */
 int 	aux_atoi(const char *str);
-void	parse(int argc, char *argv[]);
+int		number_arguments(int argc, char *argv[]);
+int		*parse(int argc, char *argv[]);
 
 
 /* LISTS */

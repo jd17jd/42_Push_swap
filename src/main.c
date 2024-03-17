@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/08 03:46:00 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/15 23:36:09 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	main(int argc, char *argv[])
 {
+	int		*aux;
 	t_node	**stackA;
 	t_node	**stackB;
 		
@@ -22,16 +23,14 @@ int	main(int argc, char *argv[])
 		perror("Error 1. Incorrect number of parameters\n");
 		return(1);
 	}
-	
-	parse(argc, argv);
 
+	aux = NULL;
 	stackA = NULL;
 	stackB = NULL;
 
-	// (void) stackA;
-	// (void) stackB;
+	aux = parse(argc, argv);
 	
-	stackA = init(argc, argv);
+	stackA = init(argc, argv, aux);
 	// stackB = init(argc, argv);
 	if (!*stackA)
 	{
@@ -39,9 +38,11 @@ int	main(int argc, char *argv[])
 		free(stackA);
 		return (8);
 	}
+	
+	ver_lista(stackA);
 
-	pruebas_movements(stackA, stackB);
-	pruebas_algorithm(stackA, stackB);
+	// pruebas_movements(stackA, stackB);
+	// pruebas_algorithm(stackA, stackB);
 	
 	free(stackA);
 	free(stackB);

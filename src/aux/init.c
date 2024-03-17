@@ -6,23 +6,88 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/08 03:46:07 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/16 21:02:50 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../inc/ft_push_swap.h"
 
-t_node    **init(int argc, char *argv[])
+static int *bubble_sort(int *array, int size)
+{
+    int i;
+    int j;
+    int aux;
+	int *res;
+
+	res = ft_calloc(size, sizeof(int));
+	if (!res) //Check error number
+	{
+		perror("Error 2. Unable to allocate memory\n");
+		exit(2);
+	}
+    i = 0;
+	while (i < size)
+	{
+		res[i] = array[i];
+		i++;
+	}
+	i = 0;
+    while (i < size - 1)
+    {
+        j = 0;
+        while (j < size - i - 1)
+        {
+            if (res[j] > res[j + 1])
+            {
+                aux = res[j];
+                res[j] = res[j + 1];
+                res[j + 1] = aux;
+            }
+            j++;
+        }
+        i++;
+    }
+	return (res);
+}
+
+static void order_array(int *not_ordered_array, int size)
+{
+	int i;
+	int j;
+	int *ordered_array;
+	
+	i = 0;
+	ordered_array = bubble_sort(not_ordered_array, size);
+	while (i < size)
+	{
+		j = 0;
+		while(j < size)
+		{
+			if (not_ordered_array[i] == ordered_array[j])
+			{
+				not_ordered_array[i] = j;
+				break ;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+
+t_node    **init(int argc, char *argv[], int *aux)
 {
 	int		i;
+	int		num_args;
 	t_node	**res;
 
 	i = 1;
-	res = NULL;
+	num_args = number_arguments(argc, argv);
+	order_array(aux, num_args);
 	res = ft_calloc(argc, sizeof(t_node *));
 	while(argv[i])
 	{
-		t_node *node = node_new(i - 1, aux_atoi(argv[i]));
+		t_node *node = node_new(aux[i - 1], aux_atoi(argv[i]));
 		if (node)
 			node_add_back(res, node);
 		i++;
@@ -43,7 +108,7 @@ void	ver_lista(t_node **start)
 	actual = start[0];
 	while (actual)
 	{
-		printf("Node: %p, position: %d, content: %d\n", actual, i, actual->content);
+		printf("Node: %p, position: %d, content: %d\n", actual, actual->position, actual->content);
 		next_node = actual->next;
 		actual = next_node;
 		i++;

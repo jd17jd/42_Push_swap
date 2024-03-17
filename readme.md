@@ -5,6 +5,11 @@ INFORMACIÓN IMPORTANTE AQUI:
 
 EXPLICACION DEL DESAROLLO DEL PROYECTO
 
+
+- OBJETIVO
+    - Implementación de un algoritmo que ordene los numeros de una pila con el menor numero de operaciones posible.
+
+
 - ESPECIFICACIONES:
 
     - Tenemos dos pilas: StackA y StackB.
@@ -30,24 +35,29 @@ EXPLICACION DEL DESAROLLO DEL PROYECTO
         - pb: Llevar la cima de StackA a la cima de StackB
 
 
-- OBJETIVO
-    - Implementación de un algoritmo que ordene los numeros de una pila con el menor numero de operaciones posible.
-
-
 - ALGORITMO:
-    1. Declaracion a nuestras dos estructuras de datos / listas enlazadas. Una para A y otra para B.
-        Inicializar ambas pilas a NULL para evitar comportamiento indefinido.
+    1. Declaracion de nuestras dos estructuras de datos (A y B)
+        - Inicializar ambas pilas a NULL
 
-    2. Control de errores entrada. Debe haber dos o mas argumentos y el segundo no puede ser nulo
+    2. Parseo de entrada:
+        - Debe haber dos o más argumentos
+            - Nº variable de argumentos
+            - Un único argumento en forma de string
+        - Error 1. Incorrect number of parameters --> Si me introducen menos de dos parametros
+        - Error 2. Unable to allocate memory --> Si la cantidad de argumentos que me pasan es muy grande
+        - Error 3. Number out of range --> Si me pasan un numero mayor a MAXINT
+        - Error 4. No number to convert --> Si me pasan algo que no sea un número
+        - Error 5. Duplicate values --> Si me pasan dos numeros iguales
+        - Error 6. Impossible to create the array --> Si no se ha podido dividir los argumentos correctamente para poderlos examinar
+        - Error 7. 2nd value is NULL. --> Si lo que hay en "" como primer argumento es nulo.
 
-    3. Parseo de la entrada
-        Si es un variable número de argumentos
-        Si es un único argumento en forma de string
+    3. Inicializar StackA aplicando cada num de entrada como un nodo de StackA
 
-    4. Inicializar StackA apilando cada numero de entrada como un nodo de StackA
-        Manejar los erroes de los posibles nodos a apilar (overflow, duplicados, elementos que no sean long int)
-        Los nodos deben ser long int
-        Apilar los nodos a StackA
+    4. Comprobar que se ha inicializado correctamente.
+        - Error 8. Failed to create list
+
+    5. Algoritmo
+
 
     5. Comprobar si StackA está ordenado
         Si no está ordenado implementar nuestro algoritmo
