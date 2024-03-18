@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/18 16:23:12 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/18 22:41:45 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ int	main(int argc, char *argv[])
 	order_stack(stackA, stackB);
 	printf("\n");
 	ver_lista(stackA);
-	// pruebas_movements(stackA, stackB);
+	printf("\n");
+	//pruebas_movements(stackA, stackB);
 	//pruebas_algorithm(stackA, stackB);
 	
 	free(stackA);

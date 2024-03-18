@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/27 22:22:13 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 12:08:16 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/18 16:57:03 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,6 @@ void    node_delete(t_node **lst, t_node *node)
         node->next->prev = node->prev;
     free(node);
 }
-
-/*
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
-{
-	if (lst)
-	{
-		del(lst -> content);
-		free(lst);
-	}
-}
-*/
 
 //ft_lstiter
 void	node_iter(t_node *lst, void (*f)(int))
