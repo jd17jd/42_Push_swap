@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:48:00 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/17 23:48:11 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:26:18 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	is_ordered(t_node **stack)
 {
     t_node	*aux;
 
-    if (!stack)
+    if (!stack || !*stack)
         return (1);
 
     aux = *stack;
@@ -82,13 +82,12 @@ void    sort_five_elements(t_node **stackA, t_node **stackB)
         if ((*stackA)->content > (*stackA)->next->content)
             sa(stackA);
         pb(stackA, stackB);
-        printf("prueba\n");
         i++;
     }
     sort_three_elements(stackA);
     pa(stackA, stackB);
     pa(stackA, stackB);
-}
+}// OK
 
 void    sort_big_stack(t_node **stackA, t_node **stackB)
 {
@@ -99,7 +98,6 @@ void    sort_big_stack(t_node **stackA, t_node **stackB)
 	int		num;
 
 	i = 0;
-	j = 0;
 	size = node_size(stackA[0]);
 	i = size - 1;
 	max_bits = 0;
@@ -108,6 +106,7 @@ void    sort_big_stack(t_node **stackA, t_node **stackB)
 	i = 0;
 	while (i < max_bits)
 	{
+        j = 0;
 		while (j < size)
 		{
 			num = (*stackA)->position;

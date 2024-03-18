@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/17 23:56:20 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/18 15:34:49 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,17 +81,15 @@ void	pruebas_algorithm(t_node **stackA, t_node **stackB)
 
 	printf("	Movimientos:\n");
 	//sort_three_elements(stackA);
-	sort_five_elements(stackA, stackB);
-	//sort_big_stack(stackA, stackB);
+	//sort_five_elements(stackA, stackB);
+	sort_big_stack(stackA, stackB);
 	printf("\n");
 	
 	printf("	Lista ordenada\n");
 	printf("STACK A:\n");
 	ver_lista(stackA);
 	printf("\n");
-
-	printf("	PRUEBA FUNCTION find_highest()\n");
-	t_node	*aux;
-	aux = find_highest(stackA);
-	printf("%d\n", aux->content);
+	printf("STACK B:\n");
+	ver_lista(stackB);
+	printf("\n");
 }
