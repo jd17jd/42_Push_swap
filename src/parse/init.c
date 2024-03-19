@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/19 17:42:21 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/20 00:26:10 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static int *bubble_sort(int *array, int size)
 	res = ft_calloc(size, sizeof(int));
 	if (!res) //Check error number
 	{
-		perror("Error 2. Unable to allocate memory\n");
-		exit(2);
+		perror("Error\n"); //Error 9. Unable to allocate memory
+		exit(9);
 	}
     i = 0;
 	while (i < size)

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 13:23:50 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/19 20:28:55 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 23:53:06 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ void	free_stack(t_node **stack)
 	aux = *stack;
 	while (aux)
 	{
-        printf("prueba\n");
 		aux2 = aux;
 		aux = aux->next;
 		free(aux2);

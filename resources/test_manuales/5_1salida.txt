@@ -1,0 +1,20 @@
+5
+
+Node: 0x7fc0a3f05cc0, position: 0, content: -100
+Node: 0x7fc0a3f05ce0, position: 2, content: 5
+Node: 0x7fc0a3f05d00, position: 3, content: 78
+Node: 0x7fc0a3f05d20, position: 4, content: 29383727
+Node: 0x7fc0a3f05d40, position: 1, content: -9
+
+pb
+rra
+pb
+pa
+pa
+
+Node: 0x7fc0a3f05cc0, position: 0, content: -100
+Node: 0x7fc0a3f05d40, position: 1, content: -9
+Node: 0x7fc0a3f05ce0, position: 2, content: 5
+Node: 0x7fc0a3f05d00, position: 3, content: 78
+Node: 0x7fc0a3f05d20, position: 4, content: 29383727
+
