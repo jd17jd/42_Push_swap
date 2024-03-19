@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/18 22:41:45 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:24:07 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,19 @@ int	main(int argc, char *argv[])
 	t_node	**stackA;
 	t_node	**stackB;
 		
-	if (argc < 2)
+	if (argc < 2) //Error 1. Nº argumentos incorrectos
 	{
-		perror("Error 1. Incorrect number of parameters\n");
+		perror("Error\n");
 		return(1);
 	}
-
+	
+	stackA = (t_node **)ft_calloc(1, sizeof(t_node *));
+	stackB = (t_node **)ft_calloc(1, sizeof(t_node *));
+	
 	aux = NULL;
-	stackA = NULL;
-	stackB = NULL;
-
 	aux = parse(argc, argv);
+	init_a_b(argc, argv, aux, stackA, stackB);
 	
-	stackA = init(argc, argv, aux);
-	
-	stackB = ft_calloc(1, sizeof(t_node *));
-	node_add_back(stackB, NULL);
-	if (!stackA || !stackB)
-	{
-		perror("Error 8. Failed to create list\n");
-		return (8);
-	}
 	ver_lista(stackA);
 	printf("\n");
 	order_stack(stackA, stackB);

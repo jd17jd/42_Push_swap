@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 19:23:05 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/06 13:15:14 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 13:44:38 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ static int	aux_space(char c)
 		|| c == '\f' || c == '\r'
 	);
 }
+
 static int	aux_sign(char str)
 {
 	if (str == '-')
@@ -26,7 +27,7 @@ static int	aux_sign(char str)
 	return (1);
 }
 
-static int	aux_i (char c, int i)
+static int	aux_i(char c, int i)
 {
 	if (c == '-' || c == '+')
         return(++i);
@@ -62,15 +63,14 @@ int aux_atoi(const char *str)
 		res = res * 10 + digit;
 		if (aux_overflow(res) == 1)
 		{
-			perror("Error 3. Number out of range\n");
+			perror("Error\n"); //Error 3. Number out of range
 			exit(3);
 		}
 		i++;
 	}
-	
 	if (digit == -1)
 	{
-		perror("Error 4. No number to convert\n");
+		perror("Error\n"); //Error 4. No number to convert
 		exit (4);
 	}
 	return (res * sign);

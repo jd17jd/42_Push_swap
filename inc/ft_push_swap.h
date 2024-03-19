@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/18 22:40:41 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:21:08 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,13 @@ void    sort_big_stack(t_node **stackA, t_node **stackB);
 void	order_stack(t_node **stackA, t_node **stackB);
 
 
+/* FREES */
+void	free_array(char **array);
+
 
 /* AUX */
-t_node   **init(int argc, char *argv[], int *aux);
+// t_node   **init(int argc, char *argv[], int *aux);
+void	init_a_b(int argc, char *argv[], int *aux, t_node **stackA, t_node **stackB);
 void	ver_lista(t_node **start);
 
 

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/18 22:34:44 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:23:51 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,26 +75,58 @@ static void order_array(int *not_ordered_array, int size)
 }
 
 
-t_node    **init(int argc, char *argv[], int *aux)
+// t_node    **init(int argc, char *argv[], int *aux)
+// {
+// 	int		i;
+// 	int		num_args;
+// 	t_node	**res;
+// 	t_node	*node;
+
+// 	i = 1;
+// 	num_args = number_arguments(argc, argv);
+// 	order_array(aux, num_args);
+// 	res = ft_calloc(1, sizeof(t_node *));
+// 	while(argv[i])
+// 	{
+// 		node = node_new(aux[i - 1], aux_atoi(argv[i]));
+// 		if (node)
+// 			node_add_back(res, node);
+// 		i++;
+// 	}
+// 	return (res);
+// }
+
+static void	init_a(t_node **stackA, int argc, char *argv[], int *aux)
 {
 	int		i;
 	int		num_args;
-	t_node	**res;
 	t_node	*node;
 
 	i = 1;
 	num_args = number_arguments(argc, argv);
 	order_array(aux, num_args);
-	res = ft_calloc(1, sizeof(t_node *));
 	while(argv[i])
 	{
 		node = node_new(aux[i - 1], aux_atoi(argv[i]));
 		if (node)
-			node_add_back(res, node);
+			node_add_back(stackA, node);
 		i++;
 	}
-	return (res);
 }
+
+void	init_a_b(int argc, char *argv[], int *aux, t_node **stackA, t_node **stackB)
+{
+	if (!stackA || !stackB) //Check error number
+	{
+		perror("Error\n"); //Error 8. Unable to allocate memory
+		exit(8);
+	}
+	*stackA = NULL;
+	*stackB = NULL;
+
+	init_a(stackA, argc, argv, aux);
+}
+
 
 void	ver_lista(t_node **start)
 {
