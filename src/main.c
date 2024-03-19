@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/19 17:24:07 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:25:31 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	main(int argc, char *argv[])
 	stackB = (t_node **)ft_calloc(1, sizeof(t_node *));
 	
 	aux = NULL;
+	
 	aux = parse(argc, argv);
+	
 	init_a_b(argc, argv, aux, stackA, stackB);
 	
 	ver_lista(stackA);
