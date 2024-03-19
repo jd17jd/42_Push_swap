@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 13:23:50 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/19 13:25:01 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 20:28:55 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,21 @@ void	free_array(char **array)
 		i++;
 	}
 	free(array);
+}
+
+void	free_stack(t_node **stack)
+{
+	t_node	*aux;
+	t_node	*aux2;
+
+	aux = *stack;
+	while (aux)
+	{
+        printf("prueba\n");
+		aux2 = aux;
+		aux = aux->next;
+		free(aux2);
+	}
+	free(stack);
 }
 

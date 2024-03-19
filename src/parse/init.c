@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/19 17:25:23 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 17:42:21 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ static void order_array(int *not_ordered_array, int size)
 	}
 }
 
-
 static void	init_a(t_node **stackA, int argc, char *argv[], int *aux)
 {
 	int		i;
@@ -91,18 +90,18 @@ static void	init_a(t_node **stackA, int argc, char *argv[], int *aux)
 			node_add_back(stackA, node);
 		i++;
 	}
+	free(aux);
 }
 
-void	init_a_b(int argc, char *argv[], int *aux, t_node **stackA, t_node **stackB)
+void	init(int argc, char *argv[], int *aux, t_node **stackA, t_node **stackB)
 {
-	if (!stackA || !stackB) //Check error number
+	if (!stackA || !stackB)
 	{
 		perror("Error\n"); //Error 8. Unable to allocate memory
 		exit(8);
 	}
 	*stackA = NULL;
 	*stackB = NULL;
-
 	init_a(stackA, argc, argv, aux);
 }
 

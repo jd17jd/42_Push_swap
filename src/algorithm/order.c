@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:45:35 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/17 21:06:31 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/19 19:53:13 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ void order_stack(t_node **stackA, t_node **stackB)
         size = node_size(current);
         if (size == 2 && current->content > current->next->content)
             sa(stackA);
-        if (size == 3)
+        else if (size == 3)
             sort_three_elements(stackA);
-        if (size > 3 && size < 6)
+        else if (size > 3 && size < 6)
             sort_five_elements(stackA, stackB);
         else
             sort_big_stack(stackA, stackB);
