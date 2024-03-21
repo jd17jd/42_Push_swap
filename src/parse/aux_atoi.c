@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 19:23:05 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/20 00:25:59 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/21 12:50:42 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 static int	aux_space(char c)
 {
-	return (
-		c == ' ' || c == '\t' || c == '\n' || c == '\v'
-		|| c == '\f' || c == '\r'
-	);
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r');
 }
 
 static int	aux_sign(char str)
@@ -34,20 +32,47 @@ static int	aux_i(char c, int i)
 	return (i);
 }
 
-static int	aux_overflow(long int num)
-{
-    if (num > INT_MAX || num < INT_MIN)
-        return (1);
-    else
-        return (0);
-}
+// int aux_atoi(const char *str)
+// {
+// 	int			i;
+// 	long int	res;
+// 	int			sign;
+// 	int			digit;
+	
+// 	i = 0;
+// 	res = 0;
+// 	sign = 1;
+// 	digit = -1;
+// 	while(str[i] && aux_space(str[i]))
+// 		i++;
+// 	sign = aux_sign(str[i]);
+// 	i = aux_i(str[i], i);
+// 	while(ft_isdigit(str[i])) //Conversion de digitos a entero
+// 	{
+// 		digit = str[i] - '0';
+// 		res = res * 10 + digit;
+// 		printf("res: %li\n", res);
+// 		if (res > 2147483647 || res < -2147483648)
+// 		{
+// 			fprintf(stderr, "Error\n");  //Error 3. Number out of range
+// 			exit(3);
+// 		}
+// 		i++;
+// 	}
+// 	if ((!str[i] && digit == -1) || (str[i] && !ft_isdigit(str[i])))
+// 	{
+// 		fprintf(stderr, "Error\n"); //Error 4. No number to convert
+// 		exit (4);
+// 	}
+// 	return (res * sign);
+// }
 
 int aux_atoi(const char *str)
 {
-	int			i;
-	long int	res;
-	int			sign;
-	int			digit;
+	int				i;
+	long long int	res;
+	int				sign;
+	int				digit;
 	
 	i = 0;
 	res = 0;
@@ -57,21 +82,32 @@ int aux_atoi(const char *str)
 		i++;
 	sign = aux_sign(str[i]);
 	i = aux_i(str[i], i);
-	while(ft_isdigit(str[i])) //Conversion de digitos a entero
+	if (sign == -1) // Aplicar signo negativo una vez
+		res *= sign;
+	while(ft_isdigit(str[i])) // Conversion de dígitos a entero
 	{
 		digit = str[i] - '0';
-		res = res * 10 + digit;
-		if (aux_overflow(res) == 1)
+		if (res >= 0)
+			res = res * 10 + digit;
+		if (res < 0)
+			res = res * 10 - digit;
+		if (sign == -1)
 		{
-			perror("Error\n"); //Error 3. Number out of range
+			res *= sign;
+			sign = 0;
+		}
+		if (res > 2147483647 || res < -2147483648)
+		{
+			fprintf(stderr, "Error\n");  // Error 3. Número fuera de rango
 			exit(3);
 		}
 		i++;
 	}
-	if (digit == -1)
+	//printf("%lli\n", res);
+	if ((!str[i] && digit == -1) || (str[i] && !ft_isdigit(str[i])))
 	{
-		perror("Error\n"); //Error 4. No number to convert
+		fprintf(stderr, "Error\n"); // Error 4. No hay número para convertir
 		exit (4);
 	}
-	return (res * sign);
+	return (res);
 }

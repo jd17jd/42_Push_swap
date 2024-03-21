@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:15:40 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/20 00:26:27 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:08:40 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,14 @@ static int 	*aux_parse(char *args[], int num_args)
 	enteros = (int *)ft_calloc(num_args, sizeof(int));
 	if (!enteros)
 	{
-		perror("Error\n"); //Error 2. Unable to allocate memory
+		fprintf(stderr, "Error\n"); //Error 2. Unable to allocate memory
 		exit(2);
 	}
 	while (args[i])
 	{
 		elto = aux_atoi(args[i]);
 		enteros[i] = elto; //pasar los enteros a un array de enteros
+		// printf("%d\n", enteros[i]);
 		i++;
 	}
 	i = 0;
@@ -68,7 +69,7 @@ static int 	*aux_parse(char *args[], int num_args)
 	{
 		if (num_occurences(enteros, enteros[i], num_args) > 1)
 		{
-			perror("Error\n"); //Error 5. Duplicate values
+			fprintf(stderr, "Error\n"); //Error 5. Duplicate values
 			exit(5);
 		}
 		i++;
@@ -88,15 +89,18 @@ int	*parse(int argc, char *argv[])
 	aux = ft_split(argv[1], ' ');
 	if (!aux)
 	{
-		perror("Error\n"); //Error 6. Impossible to create the array
+		fprintf(stderr, "Error\n"); //Error 6. Impossible to create the array
 		exit(6);
 	}
+	//printf("Prueba 1\n");
 	if (!*aux)
 	{
-		perror("Error\n"); //Error 7. 2nd value is NULL
+		fprintf(stderr, "Error\n"); //Error 7. 2nd value is NULL
 		exit(7);
 	}
 	res = aux_parse(aux, num_args);
+	//printf("Prueba 2\n");
 	free_array(aux);
+	//printf("Prueba 3\n");
 	return (res);
 }

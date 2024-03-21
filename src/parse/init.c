@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/20 00:26:10 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/21 13:46:07 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int *bubble_sort(int *array, int size)
 	res = ft_calloc(size, sizeof(int));
 	if (!res) //Check error number
 	{
-		perror("Error\n"); //Error 9. Unable to allocate memory
+		fprintf(stderr, "Error\n"); //Error 9. Unable to allocate memory
 		exit(9);
 	}
     i = 0;
@@ -79,17 +79,31 @@ static void	init_a(t_node **stackA, int argc, char *argv[], int *aux)
 	int		i;
 	int		num_args;
 	t_node	*node;
+	char	**aux2;
 
 	i = 1;
 	num_args = number_arguments(argc, argv);
 	order_array(aux, num_args);
-	while(argv[i])
+	aux2 = ft_split(argv[1], ' ');
+	while(i <= num_args)
 	{
-		node = node_new(aux[i - 1], aux_atoi(argv[i]));
-		if (node)
-			node_add_back(stackA, node);
+		if (argc != 2)
+		{
+			//printf("Prueba 5\n");
+			node = node_new(aux[i - 1], aux_atoi(argv[i]));
+			if (node)
+				node_add_back(stackA, node);
+		}
+		else
+		{
+			//printf("Prueba 6\n");
+			node = node_new(aux[i - 1], aux_atoi(aux2[i - 1]));
+			if (node)
+				node_add_back(stackA, node);
+		}
 		i++;
 	}
+	//free_array(aux2);
 	free(aux);
 }
 
@@ -97,7 +111,7 @@ void	init(int argc, char *argv[], int *aux, t_node **stackA, t_node **stackB)
 {
 	if (!stackA || !stackB)
 	{
-		perror("Error\n"); //Error 8. Unable to allocate memory
+		fprintf(stderr, "Error\n"); //Error 8. Unable to allocate memory
 		exit(8);
 	}
 	*stackA = NULL;
