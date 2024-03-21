@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:48:00 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/20 00:08:31 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:45:34 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,20 @@ int	is_ordered(t_node **stack)
 static t_node  *find_highest(t_node **stack)
 {
     t_node  *res;
-    t_node  *actual;
+    t_node  *current;
 
-    if (*stack == NULL) {
-        return NULL;
+    if (!*stack) {
+        return (NULL);
     }
 
-    actual = *stack;
-    res = actual;
+    current = *stack;
+    res = current;
     
-    while (actual)
+    while (current)
     {
-        if (actual->position > res->position)
-            res = actual;
-        actual = actual->next;
+        if (current->position > res->position)
+            res = current;
+        current = current->next;
     }
     return(res);
 } //OK

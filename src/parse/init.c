@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/21 13:46:07 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:39:44 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ static void	init_a(t_node **stackA, int argc, char *argv[], int *aux)
 {
 	int		i;
 	int		num_args;
-	t_node	*node;
-	char	**aux2;
+	t_node	*node; //FREE OK
+	char	**aux2; //FREE OK
 
 	i = 1;
 	num_args = number_arguments(argc, argv);
@@ -89,22 +89,19 @@ static void	init_a(t_node **stackA, int argc, char *argv[], int *aux)
 	{
 		if (argc != 2)
 		{
-			//printf("Prueba 5\n");
 			node = node_new(aux[i - 1], aux_atoi(argv[i]));
 			if (node)
 				node_add_back(stackA, node);
 		}
 		else
 		{
-			//printf("Prueba 6\n");
 			node = node_new(aux[i - 1], aux_atoi(aux2[i - 1]));
 			if (node)
 				node_add_back(stackA, node);
 		}
 		i++;
 	}
-	//free_array(aux2);
-	free(aux);
+	free_array(aux2);
 }
 
 void	init(int argc, char *argv[], int *aux, t_node **stackA, t_node **stackB)
@@ -130,7 +127,7 @@ void	ver_lista(t_node **start)
 		return ;
 
 	i = 0;
-	actual = start[0];
+	actual = *start;
 	while (actual)
 	{
 		printf("Node: %p, position: %d, content: %d\n", actual, actual->position, actual->content);

@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:15:40 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/21 14:08:40 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:57:33 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	number_arguments(int argc, char *argv[])
 {
 	int		res;
-	char	**aux;
+	char	**aux; //FREE OK
 
 	if (argc != 2) //Para cuando ./push_swap 1 2 3 4 5 6
 		return (argc - 1);
@@ -47,7 +47,7 @@ static int 	*aux_parse(char *args[], int num_args)
 {
 	int	i;
 	int	elto;
-	int	*enteros;
+	int	*enteros; //FREE - 
 
 	i = 0;
 	elto = 0;
@@ -61,7 +61,6 @@ static int 	*aux_parse(char *args[], int num_args)
 	{
 		elto = aux_atoi(args[i]);
 		enteros[i] = elto; //pasar los enteros a un array de enteros
-		// printf("%d\n", enteros[i]);
 		i++;
 	}
 	i = 0;
@@ -80,27 +79,24 @@ static int 	*aux_parse(char *args[], int num_args)
 int	*parse(int argc, char *argv[])
 {
 	int		num_args;
-	int		*res;
-	char	**aux;
+	int		*res; //FREE -
+	char	**aux; //FREE OK
 	
 	num_args = number_arguments(argc, argv);
 	if (argc != 2)
-		return (aux_parse(argv + 1, num_args));
+		return (res = aux_parse(argv + 1, num_args));
 	aux = ft_split(argv[1], ' ');
 	if (!aux)
 	{
 		fprintf(stderr, "Error\n"); //Error 6. Impossible to create the array
 		exit(6);
 	}
-	//printf("Prueba 1\n");
 	if (!*aux)
 	{
 		fprintf(stderr, "Error\n"); //Error 7. 2nd value is NULL
 		exit(7);
 	}
 	res = aux_parse(aux, num_args);
-	//printf("Prueba 2\n");
 	free_array(aux);
-	//printf("Prueba 3\n");
 	return (res);
 }
