@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/ft_push_swap.h"
+#include "../../inc/ft_push_swap.h"
 
 int	number_arguments(int argc, char *argv[])
 {
 	int		res;
-	char	**aux; //FREE OK
+	char	**aux;
 
-	if (argc != 2) //Para cuando ./push_swap 1 2 3 4 5 6
+	if (argc != 2)
 		return (argc - 1);
-	res = 0; //Para cuando es ./push_swap "1 2 3 4 5 6"
+	res = 0;
 	aux = ft_split(argv[1], ' ');
-	while(aux[res])
+	while (aux[res])
 		res++;
 	free_array(aux);
-	return(res);
-} //OK
+	return (res);
+}
 
 static int	num_occurences(int *array, int num, int size)
 {
@@ -43,32 +43,32 @@ static int	num_occurences(int *array, int num, int size)
 	return (res);
 }
 
-static int 	*aux_parse(char *args[], int num_args)
+static int	*aux_parse(char *args[], int num_args)
 {
 	int	i;
 	int	elto;
-	int	*enteros; //FREE - 
+	int	*enteros;
 
 	i = 0;
 	elto = 0;
 	enteros = (int *)ft_calloc(num_args, sizeof(int));
 	if (!enteros)
 	{
-		fprintf(stderr, "Error\n"); //Error 2. Unable to allocate memory
+		fprintf(stderr, "Error\n");
 		exit(2);
 	}
 	while (args[i])
 	{
 		elto = aux_atoi(args[i]);
-		enteros[i] = elto; //pasar los enteros a un array de enteros
+		enteros[i] = elto;
 		i++;
 	}
 	i = 0;
-	while (i < num_args) //comprobacion duplicado
+	while (i < num_args)
 	{
 		if (num_occurences(enteros, enteros[i], num_args) > 1)
 		{
-			fprintf(stderr, "Error\n"); //Error 5. Duplicate values
+			fprintf(stderr, "Error\n");
 			exit(5);
 		}
 		i++;
@@ -79,21 +79,21 @@ static int 	*aux_parse(char *args[], int num_args)
 int	*parse(int argc, char *argv[])
 {
 	int		num_args;
-	int		*res; //FREE -
-	char	**aux; //FREE OK
-	
+	int		*res;
+	char	**aux;
+
 	num_args = number_arguments(argc, argv);
 	if (argc != 2)
 		return (res = aux_parse(argv + 1, num_args));
 	aux = ft_split(argv[1], ' ');
 	if (!aux)
 	{
-		fprintf(stderr, "Error\n"); //Error 6. Impossible to create the array
+		fprintf(stderr, "Error\n");
 		exit(6);
 	}
 	if (!*aux)
 	{
-		fprintf(stderr, "Error\n"); //Error 7. 2nd value is NULL
+		fprintf(stderr, "Error\n");
 		exit(7);
 	}
 	res = aux_parse(aux, num_args);

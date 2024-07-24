@@ -12,7 +12,7 @@
 
 #include "../../inc/libft.h"
 
-int	static	ft_space(char c)
+static int	ft_space(char c)
 {
 	return (
 		c == ' ' || c == '\t' || c == '\n' || c == '\v'

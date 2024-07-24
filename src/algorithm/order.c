@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/ft_push_swap.h"
+#include "../../inc/ft_push_swap.h"
 
-void order_stack(t_node **stackA, t_node **stackB)
+void	order_stack(t_node **stack_a, t_node **stack_b)
 {
-    t_node  *current;
-    int     size;
+	t_node	*current;
+	int		size;
 
-    if (is_ordered(stackA) != 0)
-    {
-        current = *stackA;
-        size = node_size(current);
-        if (size == 2 && current->content > current->next->content)
-            sa(stackA);
-        else if (size == 3)
-            sort_three_elements(stackA);
-        else if (size > 3 && size < 6)
-            sort_five_elements(stackA, stackB);
-        else
-            sort_big_stack(stackA, stackB);
-    }
+	if (is_ordered(stack_a) != 0)
+	{
+		current = *stack_a;
+		size = node_size(current);
+		if (size == 2 && current->content > current->next->content)
+			sa(stack_a);
+		else if (size == 3)
+			sort_three_elements(stack_a);
+		else if (size > 3 && size < 6)
+			sort_five_elements(stack_a, stack_b);
+		else
+			sort_big_stack(stack_a, stack_b);
+	}
 }

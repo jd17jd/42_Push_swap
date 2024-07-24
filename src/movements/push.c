@@ -10,43 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/ft_push_swap.h"
+#include "../../inc/ft_push_swap.h"
 
-//PUSH
-void	push(t_node **stackA, t_node **stackB)
+/* PUSH */
+void	push(t_node **stack_a, t_node **stack_b)
 {
-	t_node *aux;
+	t_node	*aux;
 
-	if (!*stackA)
+	if (!*stack_a)
 		return ;
-	aux = *stackA;
-	*stackA = (*stackA)->next;
-	if (*stackA)
-		(*stackA)->prev = NULL;
-    aux->prev = NULL;
-	if (!*stackB)
+	aux = *stack_a;
+	*stack_a = (*stack_a)->next;
+	if (*stack_a)
+		(*stack_a)->prev = NULL;
+	aux->prev = NULL;
+	if (!*stack_b)
 	{
-		*stackB = aux;
+		*stack_b = aux;
 		aux->next = NULL;
 	}
 	else
 	{
-		aux->next = *stackB;
+		aux->next = *stack_b;
 		aux->next->prev = aux;
-		*stackB = aux;
+		*stack_b = aux;
 	}
-	*stackB = aux;
+	*stack_b = aux;
 }
 
-//pa. Cima de StackB a la cima de StackA
-void    pa(t_node **a, t_node **b)
+/* pa. Cima de StackB a la cima de StackA */
+void	pa(t_node **a, t_node **b)
 {
 	push(b, a);
 	printf("pa\n");
 }
 
-//pb. Cima de StackA a la cima de StackB
-void    pb(t_node **a, t_node **b)
+/* pb. Cima de StackA a la cima de StackB */
+void	pb(t_node **a, t_node **b)
 {
 	push(a, b);
 	printf("pb\n");

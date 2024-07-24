@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/ft_push_swap.h"
+#include "../../inc/ft_push_swap.h"
 
 static int	aux_space(char c)
 {
@@ -28,29 +28,28 @@ static int	aux_sign(char str)
 static int	aux_i(char c, int i)
 {
 	if (c == '-' || c == '+')
-        return(++i);
+		return (++i);
 	return (i);
 }
 
-
-int aux_atoi(const char *str)
+int	aux_atoi(const char *str)
 {
 	int				i;
 	long long int	res;
 	int				sign;
 	int				digit;
-	
+
 	i = 0;
 	res = 0;
 	sign = 1;
 	digit = -1;
-	while(str[i] && aux_space(str[i]))
+	while (str[i] && aux_space(str[i]))
 		i++;
 	sign = aux_sign(str[i]);
 	i = aux_i(str[i], i);
-	if (sign == -1) // Aplicar signo negativo una vez
+	if (sign == -1)
 		res *= sign;
-	while(ft_isdigit(str[i])) // Conversion de dígitos a entero
+	while (ft_isdigit(str[i]))
 	{
 		digit = str[i] - '0';
 		if (res >= 0)
@@ -64,14 +63,14 @@ int aux_atoi(const char *str)
 		}
 		if (res > 2147483647 || res < -2147483648)
 		{
-			fprintf(stderr, "Error\n");  // Error 3. Número fuera de rango
+			fprintf(stderr, "Error\n");
 			exit(3);
 		}
 		i++;
 	}
 	if ((!str[i] && digit == -1) || (str[i] && !ft_isdigit(str[i])))
 	{
-		fprintf(stderr, "Error\n"); // Error 4. No hay número para convertir
+		fprintf(stderr, "Error\n");
 		exit (4);
 	}
 	return (res);

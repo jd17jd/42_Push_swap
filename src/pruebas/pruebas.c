@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/ft_push_swap.h"
+#include "../../inc/ft_push_swap.h"
 
 void	pruebas_movements(t_node **stackA, t_node **stackB)
 {

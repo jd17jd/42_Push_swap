@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/ft_push_swap.h"
+#include "../../inc/ft_push_swap.h"
 
 void	free_array(char **array)
 {
@@ -39,4 +39,3 @@ void	free_stack(t_node **stack)
 	}
 	free(stack);
 }
-

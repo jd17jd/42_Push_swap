@@ -10,84 +10,77 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/ft_push_swap.h"
+#include "../../inc/ft_push_swap.h"
 
 int	is_ordered(t_node **stack)
 {
-    t_node	*aux;
+	t_node	*aux;
 
-    if (!stack || !*stack)
-        return (1);
-
-    aux = *stack;
-    while (aux->next)
-    {
-        if (aux->content > aux->next->content)
-            return (1);
-        aux = aux->next;
-    }
-    return (0);
-} //OK
-
-static t_node  *find_highest(t_node **stack)
-{
-    t_node  *res;
-    t_node  *current;
-
-    if (!*stack) {
-        return (NULL);
-    }
-
-    current = *stack;
-    res = current;
-    
-    while (current)
-    {
-        if (current->position > res->position)
-            res = current;
-        current = current->next;
-    }
-    return(res);
-} //OK
-
-static t_node *find_lowest(t_node **stack)
-{
-	t_node  *res;
-	t_node  *actual;
-
-	if (*stack == NULL) {
-		return NULL;
+	if (!stack || !*stack)
+		return (1);
+	aux = *stack;
+	while (aux->next)
+	{
+		if (aux->content > aux->next->content)
+			return (1);
+		aux = aux->next;
 	}
+	return (0);
+}
 
+static t_node	*find_highest(t_node **stack)
+{
+	t_node	*res;
+	t_node	*current;
+
+	if (!*stack)
+		return (NULL);
+	current = *stack;
+	res = current;
+	while (current)
+	{
+		if (current->position > res->position)
+			res = current;
+		current = current->next;
+	}
+	return (res);
+}
+
+static t_node	*find_lowest(t_node **stack)
+{
+	t_node	*res;
+	t_node	*actual;
+
+	if (*stack == NULL)
+		return (NULL);
 	actual = *stack;
 	res = actual;
-	
 	while (actual)
 	{
 		if (actual->position < res->position)
 			res = actual;
 		actual = actual->next;
 	}
-	return(res);
-} //OK
+	return (res);
+}
 
-void    sort_three_elements(t_node **stack)
+void	sort_three_elements(t_node **stack)
 {
-    t_node  *highest;
+	t_node	*highest;
 
-    highest = find_highest(stack);
-    if (*stack == highest)
-        ra(stack);
-    else if ((*stack)->next == highest)
-        rra(stack);
-    if ((*stack)->content > (*stack)->next->content)
-        sa(stack);
-} //OK
+	highest = find_highest(stack);
+	if (*stack == highest)
+		ra(stack);
+	else if ((*stack)->next == highest)
+		rra(stack);
+	if ((*stack)->content > (*stack)->next->content)
+		sa(stack);
+}
 
-static int get_distance(t_node **stack, t_node *highest)
+static int	get_distance(t_node **stack, t_node *highest)
 {
-	int     i;
-	t_node  *current;
+	int		i;
+	t_node	*current;
 
 	i = 0;
 	current = *stack;
@@ -99,40 +92,44 @@ static int get_distance(t_node **stack, t_node *highest)
 	return (i);
 }
 
-void    sort_five_elements(t_node **stackA, t_node **stackB)
+void	sort_five_elements(t_node **stack_a, t_node **stack_b)
 {
-    int     i;
-    int     size;
-    t_node  *lowest;
-    t_node  *current;
+	int		i;
+	int		size;
+	t_node	*lowest;
+	t_node	*current;
 
-    i = 0;
-    size = node_size(*stackA);
-    while (i < size - 3)
-    {
-        lowest = find_lowest(stackA);
-        current = *stackA;
-		if (get_distance(stackA, lowest) < size / 2)
+	i = 0;
+	size = node_size(*stack_a);
+	while (i < size - 3)
+	{
+		lowest = find_lowest(stack_a);
+		current = *stack_a;
+		if (get_distance(stack_a, lowest) < size / 2)
+		{
 			while (current != lowest)
 			{
-				ra(stackA);
-				current = *stackA;
+				ra(stack_a);
+				current = *stack_a;
 			}
+		}
 		else
+		{
 			while (current != lowest)
 			{
-				rra(stackA);
-				current = *stackA;
+				rra(stack_a);
+				current = *stack_a;
 			}
-		pb(stackA, stackB);
+		}
+		pb(stack_a, stack_b);
 		i++;
-    }
-    sort_three_elements(stackA);
-    while (*stackB)
-        pa(stackA, stackB);
+	}
+	sort_three_elements(stack_a);
+	while (*stack_b)
+		pa(stack_a, stack_b);
 }
 
-void    sort_big_stack(t_node **stackA, t_node **stackB)
+void	sort_big_stack(t_node **stack_a, t_node **stack_b)
 {
 	int		i;
 	int		j;
@@ -141,7 +138,7 @@ void    sort_big_stack(t_node **stackA, t_node **stackB)
 	int		num;
 
 	i = 0;
-	size = node_size(stackA[0]);
+	size = node_size(stack_a[0]);
 	i = size - 1;
 	max_bits = 0;
 	while ((i >> max_bits) != 0)
@@ -149,17 +146,18 @@ void    sort_big_stack(t_node **stackA, t_node **stackB)
 	i = 0;
 	while (i < max_bits)
 	{
-        j = 0;
+		j = 0;
 		while (j < size)
 		{
-			num = (*stackA)->position;
-			if (((num >> i)&1) == 1)
-				ra(stackA);
-			else pb(stackA, stackB);
+			num = (*stack_a)->position;
+			if (((num >> i) & 1) == 1)
+				ra(stack_a);
+			else
+				pb(stack_a, stack_b);
 			j++;
 		}
-		while (stackB[0])
-			pa(stackA, stackB);
+		while (stack_b[0])
+			pa(stack_a, stack_b);
 		i++;
 	}
 }

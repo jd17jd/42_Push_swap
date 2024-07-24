@@ -10,9 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../inc/ft_push_swap.h"
+#include "../../inc/ft_push_swap.h"
 
-//ft_lstadd_back
 void	node_add_back(t_node **lst, t_node *new)
 {
 	t_node	*last;
@@ -25,9 +24,8 @@ void	node_add_back(t_node **lst, t_node *new)
 		last->next = new;
 		new->prev = last;
 	}
-} //oK
+}
 
-//ft_lstadd_front
 void	node_add_front(t_node **lst, t_node *new)
 {
 	new->next = *lst;
@@ -35,9 +33,8 @@ void	node_add_front(t_node **lst, t_node *new)
 		(*lst)->prev = new;
 	*lst = new;
 	(*lst)->prev = NULL;
-} //OK
+}
 
-//ft_lstclear
 void	node_clear(t_node **lst)
 {
 	t_node	*aux;
@@ -49,21 +46,19 @@ void	node_clear(t_node **lst)
 		*lst = aux;
 	}
 	*lst = NULL;
-} //OK
-
-//ft_lstdelone
-void    node_delete(t_node **lst, t_node *node)
-{
-    if (!node->prev)
-        node->prev->next = node->next;
-    else
-        *lst = node->next;
-    if (node->next)
-        node->next->prev = node->prev;
-    free(node);
 }
 
-//ft_lstiter
+void	node_delete(t_node **lst, t_node *node)
+{
+	if (!node->prev)
+		node->prev->next = node->next;
+	else
+		*lst = node->next;
+	if (node->next)
+		node->next->prev = node->prev;
+	free(node);
+}
+
 void	node_iter(t_node *lst, void (*f)(int))
 {
 	while (lst && f)
