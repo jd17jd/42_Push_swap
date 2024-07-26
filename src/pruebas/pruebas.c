@@ -3,31 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   pruebas.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/18 15:34:49 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/07/27 00:53:03 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/*
 
 #include "../../inc/ft_push_swap.h"
 
 void	pruebas_movements(t_node **stackA, t_node **stackB)
 {
-    printf("PRUEBA 1\n");
+	printf("PRUEBA 1\n");
 	printf("Stack A\n");
 	ver_lista(stackA);
-	
+
 	printf("Stack B\n");
 	ver_lista(stackB);
 	printf("\n");
-	
-	
+
+
 	printf("PRUEBA 2\n");
 	sa(stackA);
 	printf("Stack A\n");
 	ver_lista(stackA);
-	
+
 	printf("Stack B\n");
 	ver_lista(stackB);
 	printf("\n");
@@ -37,7 +39,7 @@ void	pruebas_movements(t_node **stackA, t_node **stackB)
 	ra(stackA);
 	printf("Stack A\n");
 	ver_lista(stackA);
-	
+
 	printf("Stack B\n");
 	ver_lista(stackB);
 	printf("\n");
@@ -47,17 +49,17 @@ void	pruebas_movements(t_node **stackA, t_node **stackB)
 	rra(stackA);
 	printf("Stack A\n");
 	ver_lista(stackA);
-	
+
 	printf("Stack B\n");
 	ver_lista(stackB);
 	printf("\n");
-	
-	
+
+
 	printf("PRUEBA 5\n");
 	pa(stackA, stackB);
 	printf("Stack A\n");
 	ver_lista(stackA);
-	
+
 	printf("Stack B\n");
 	ver_lista(stackB);
 	printf("\n");
@@ -93,3 +95,4 @@ void	pruebas_algorithm(t_node **stackA, t_node **stackB)
 	ver_lista(stackB);
 	printf("\n");
 }
+*/

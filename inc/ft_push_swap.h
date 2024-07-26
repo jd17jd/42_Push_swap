@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/20 02:58:37 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:04:22 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,19 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-int		is_ordered(t_node **stack);
 void	sort_three_elements(t_node **stack);
 void	sort_five_elements(t_node **stackA, t_node **stackB);
 void	sort_big_stack(t_node **stackA, t_node **stackB);
+t_node	*find_lowest(t_node **stack);
+t_node	*find_highest(t_node **stack);
+int		get_distance(t_node **stack, t_node *highest);
+int		is_ordered(t_node **stack);
 void	order_stack(t_node **stackA, t_node **stackB);
 void	free_array(char **array);
 void	free_stack(t_node **stack);
-void	init(int argc, char *argv[], int *aux, t_node **stackA, t_node **stackB);
-void	ver_lista(t_node **start);
+void	init(int *aux, int size, t_node **stackA, t_node **stackB);
+/* void	ver_lista(t_node **start); */
+int		*aux_strcpy_int(const int *original_array, int size);
 int		aux_atoi(const char *str);
 int		number_arguments(int argc, char *argv[]);
 int		*parse(int argc, char *argv[]);

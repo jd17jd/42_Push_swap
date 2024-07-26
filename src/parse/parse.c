@@ -12,6 +12,7 @@
 
 #include "../../inc/ft_push_swap.h"
 
+/* Deevuelve el nº total de args que buscamos introducir en la primera pila */
 int	number_arguments(int argc, char *argv[])
 {
 	int		res;
@@ -27,6 +28,7 @@ int	number_arguments(int argc, char *argv[])
 	return (res);
 }
 
+/* Devuelve el numero de veces que aparece un numero en un array */
 static int	num_occurences(int *array, int num, int size)
 {
 	int	i;
@@ -43,7 +45,7 @@ static int	num_occurences(int *array, int num, int size)
 	return (res);
 }
 
-static int	*aux_parse(char *args[], int num_args)
+static int	*allocate_and_parse(char *args[], int num_args)
 {
 	int	i;
 	int	elto;
@@ -63,7 +65,16 @@ static int	*aux_parse(char *args[], int num_args)
 		enteros[i] = elto;
 		i++;
 	}
+	return (enteros);
+}
+
+static int	*aux_parse(char *args[], int num_args)
+{
+	int	i;
+	int	*enteros;
+
 	i = 0;
+	enteros = allocate_and_parse(args, num_args);
 	while (i < num_args)
 	{
 		if (num_occurences(enteros, enteros[i], num_args) > 1)

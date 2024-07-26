@@ -3,66 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_methods.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:48:00 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/21 14:45:34 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:19:08 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
-
-int	is_ordered(t_node **stack)
-{
-	t_node	*aux;
-
-	if (!stack || !*stack)
-		return (1);
-	aux = *stack;
-	while (aux->next)
-	{
-		if (aux->content > aux->next->content)
-			return (1);
-		aux = aux->next;
-	}
-	return (0);
-}
-
-static t_node	*find_highest(t_node **stack)
-{
-	t_node	*res;
-	t_node	*current;
-
-	if (!*stack)
-		return (NULL);
-	current = *stack;
-	res = current;
-	while (current)
-	{
-		if (current->position > res->position)
-			res = current;
-		current = current->next;
-	}
-	return (res);
-}
-
-static t_node	*find_lowest(t_node **stack)
-{
-	t_node	*res;
-	t_node	*actual;
-
-	if (*stack == NULL)
-		return (NULL);
-	actual = *stack;
-	res = actual;
-	while (actual)
-	{
-		if (actual->position < res->position)
-			res = actual;
-		actual = actual->next;
-	}
-	return (res);
-}
 
 void	sort_three_elements(t_node **stack)
 {
@@ -75,21 +23,6 @@ void	sort_three_elements(t_node **stack)
 		rra(stack);
 	if ((*stack)->content > (*stack)->next->content)
 		sa(stack);
-}
-
-static int	get_distance(t_node **stack, t_node *highest)
-{
-	int		i;
-	t_node	*current;
-
-	i = 0;
-	current = *stack;
-	while (current != highest)
-	{
-		i++;
-		current = current->next;
-	}
-	return (i);
 }
 
 void	sort_five_elements(t_node **stack_a, t_node **stack_b)

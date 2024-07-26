@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aux_atoi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 19:23:05 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/21 14:13:25 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:15:31 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,35 +32,19 @@ static int	aux_i(char c, int i)
 	return (i);
 }
 
-int	aux_atoi(const char *str)
+static int	convert_number(const char *str, int i, int sign)
 {
-	int				i;
 	long long int	res;
-	int				sign;
 	int				digit;
 
-	i = 0;
 	res = 0;
-	sign = 1;
-	digit = -1;
-	while (str[i] && aux_space(str[i]))
-		i++;
-	sign = aux_sign(str[i]);
-	i = aux_i(str[i], i);
-	if (sign == -1)
-		res *= sign;
 	while (ft_isdigit(str[i]))
 	{
 		digit = str[i] - '0';
 		if (res >= 0)
 			res = res * 10 + digit;
-		if (res < 0)
+		else
 			res = res * 10 - digit;
-		if (sign == -1)
-		{
-			res *= sign;
-			sign = 0;
-		}
 		if (res > 2147483647 || res < -2147483648)
 		{
 			fprintf(stderr, "Error\n");
@@ -71,7 +55,25 @@ int	aux_atoi(const char *str)
 	if ((!str[i] && digit == -1) || (str[i] && !ft_isdigit(str[i])))
 	{
 		fprintf(stderr, "Error\n");
-		exit (4);
+		exit(4);
 	}
+	return (res * sign);
+}
+
+int	aux_atoi(const char *str)
+{
+	int	i;
+	int	sign;
+	int	res;
+
+	i = 0;
+	sign = 1;
+	while (str[i] && aux_space(str[i]))
+		i++;
+	sign = aux_sign(str[i]);
+	i = aux_i(str[i], i);
+	if (sign == -1)
+		sign = -1;
+	res = convert_number(str, i, sign);
 	return (res);
 }

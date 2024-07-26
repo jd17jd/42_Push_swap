@@ -15,6 +15,7 @@
 int	main(int argc, char *argv[])
 {
 	int		*aux;
+	int		size_int_list;
 	t_node	**stack_a;
 	t_node	**stack_b;
 
@@ -24,10 +25,11 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 	aux = NULL;
+	size_int_list = number_arguments(argc, argv);
 	stack_a = (t_node **)ft_calloc(1, sizeof(t_node *));
 	stack_b = (t_node **)ft_calloc(1, sizeof(t_node *));
 	aux = parse(argc, argv);
-	init(argc, argv, aux, stack_a, stack_b);
+	init(aux, size_int_list, stack_a, stack_b);
 	order_stack(stack_a, stack_b);
 	free(aux);
 	free_stack(stack_a);

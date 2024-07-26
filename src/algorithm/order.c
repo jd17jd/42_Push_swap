@@ -3,14 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   order.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/17 20:45:35 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/19 19:53:13 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/07/27 01:03:09 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
+
+int	is_ordered(t_node **stack)
+{
+	t_node	*aux;
+
+	if (!stack || !*stack)
+		return (1);
+	aux = *stack;
+	while (aux->next)
+	{
+		if (aux->content > aux->next->content)
+			return (1);
+		aux = aux->next;
+	}
+	return (0);
+}
 
 void	order_stack(t_node **stack_a, t_node **stack_b)
 {

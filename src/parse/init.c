@@ -3,23 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/21 14:39:44 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/07/27 00:54:39 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
-static int	*bubble_sort(int *array, int size)
+static void	bubble_sort(int *array, int size)
 {
 	int	i;
 	int	j;
 	int	aux;
-	int	*res;
 
-	res = ft_calloc(size, sizeof(int));
+	i = 0;
+	while (i < size - 1)
+	{
+		j = 0;
+		while (j < size - i - 1)
+		{
+			if (array[j] > array[j + 1])
+			{
+				aux = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = aux;
+			}
+			j++;
+		}
+		i++;
+	}
+}
+
+static int	*sorted_array(const int *array, int size)
+{
+	int	*res;
+	int	i;
+
+	res = (int *)ft_calloc(size, sizeof(int));
 	if (!res)
 	{
 		fprintf(stderr, "Error\n");
@@ -31,22 +53,7 @@ static int	*bubble_sort(int *array, int size)
 		res[i] = array[i];
 		i++;
 	}
-	i = 0;
-	while (i < size - 1)
-	{
-		j = 0;
-		while (j < size - i - 1)
-		{
-			if (res[j] > res[j + 1])
-			{
-				aux = res[j];
-				res[j] = res[j + 1];
-				res[j + 1] = aux;
-			}
-			j++;
-		}
-		i++;
-	}
+	bubble_sort(res, size);
 	return (res);
 }
 
@@ -57,7 +64,7 @@ static void	order_array(int *not_ordered_array, int size)
 	int	*ordered_array;
 
 	i = 0;
-	ordered_array = bubble_sort(not_ordered_array, size);
+	ordered_array = sorted_array(not_ordered_array, size);
 	while (i < size)
 	{
 		j = 0;
@@ -74,49 +81,38 @@ static void	order_array(int *not_ordered_array, int size)
 	}
 }
 
-static void	init_a(t_node **stackA, int argc, char *argv[], int *aux)
+static void	init_a(t_node **stack_a, int *aux, int size)
 {
 	int		i;
-	int		num_args;
+	int		*aux2;
 	t_node	*node;
-	char	**aux2;
 
-	i = 1;
-	num_args = number_arguments(argc, argv);
-	order_array(aux, num_args);
-	aux2 = ft_split(argv[1], ' ');
-	while (i <= num_args)
+	i = 0;
+	aux2 = aux_strcpy_int(aux, size);
+	order_array(aux, size);
+	while (i < size)
 	{
-		if (argc != 2)
-		{
-			node = node_new(aux[i - 1], aux_atoi(argv[i]));
-			if (node)
-				node_add_back(stackA, node);
-		}
-		else
-		{
-			node = node_new(aux[i - 1], aux_atoi(aux2[i - 1]));
-			if (node)
-				node_add_back(stackA, node);
-		}
+		node = node_new(aux[i], aux2[i]);
+		if (node)
+			node_add_back(stack_a, node);
 		i++;
 	}
-	free_array(aux2);
+	free(aux2);
 }
 
-void	init(int argc, char *argv[], int *aux, t_node **stackA, t_node **stackB)
+void	init(int *aux, int size, t_node **stack_a, t_node **stack_b)
 {
-	if (!stackA || !stackB)
+	if (!stack_a || !stack_b)
 	{
 		fprintf(stderr, "Error\n");
 		exit(8);
 	}
-	*stackA = NULL;
-	*stackB = NULL;
-	init_a(stackA, argc, argv, aux);
+	*stack_a = NULL;
+	*stack_b = NULL;
+	init_a(stack_a, aux, size);
 }
 
-void	ver_lista(t_node **start)
+/* void	ver_lista(t_node **start)
 {
 	int		i;
 	t_node	*actual;
@@ -135,3 +131,4 @@ void	ver_lista(t_node **start)
 		i++;
 	}
 }
+*/
