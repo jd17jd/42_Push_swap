@@ -79,4 +79,3 @@ EXPLICACION DEL DESAROLLO DEL PROYECTO
 
 - Reminder init:
     1. Iniciamos la pila b a null y metemos todos los numeros como nodos de una lista en la pila a
-    2. 
