@@ -66,3 +66,17 @@ EXPLICACION DEL DESAROLLO DEL PROYECTO
         Si tiene más de 3 números, implementar nuestro "algoritmo turco"
 
     6. Limpiar stack
+
+
+- Reminder parseo:
+    1. Con number_arguments() obtenemos el nº total de argumentos que buscamos introducir en la primera pila
+        - Si hay 2 argumentos quiere decir que puede ser: ./nombre_programa "23 45 67" (totales: 2, buscamos: 3)
+        - Si hay más de 2 argumentos, quiere decir que será: ./nombre_programa 23 45 67 (totales: 4, buscamos: 3)
+    2. Le pasamos a aux_parse() dos parametros: El número buscado de argumentos y por debe emmpezar a hacer el parseo
+        - aux_parse() llama a allocate_and_parse() para meter en un array de enteros todos los enteros de los argumentos
+        - luego hacemos una comprobación para ver si los numeros están repetidos en el array o no.
+
+
+- Reminder init:
+    1. Iniciamos la pila b a null y metemos todos los numeros como nodos de una lista en la pila a
+    2. 
