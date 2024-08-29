@@ -3,62 +3,61 @@
 /*                                                        :::      ::::::::   */
 /*   sort_methods_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 01:01:24 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/07/27 01:03:39 by jvivas-g         ###   ########.fr       */
+/*   Created: 2024/08/29 18:17:17 by jvivas-g          #+#    #+#             */
+/*   Updated: 2024/08/29 18:40:51 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
-t_node	*find_lowest(t_node **stack)
+int	calculate_max_bits(int size)
 {
-	t_node	*res;
-	t_node	*actual;
+	int	max_bits;
 
-	if (*stack == NULL)
-		return (NULL);
-	actual = *stack;
-	res = actual;
-	while (actual)
-	{
-		if (actual->position < res->position)
-			res = actual;
-		actual = actual->next;
-	}
-	return (res);
+	max_bits = 0;
+	while ((size >> max_bits) != 0)
+		max_bits++;
+	return (max_bits);
 }
 
-t_node	*find_highest(t_node **stack)
+void	sort_by_bit(t_node **stack_a, t_node **stack_b, int bit, int size)
 {
-	t_node	*res;
-	t_node	*current;
+	int	j;
+	int	num;
 
-	if (!*stack)
-		return (NULL);
-	current = *stack;
-	res = current;
-	while (current)
+	j = 0;
+	while (j < size)
 	{
-		if (current->position > res->position)
-			res = current;
-		current = current->next;
+		num = (*stack_a)->position;
+		if (((num >> bit) & 1) == 1)
+			ra(stack_a);
+		else
+			pb(stack_a, stack_b);
+		j++;
 	}
-	return (res);
 }
 
-int	get_distance(t_node **stack, t_node *highest)
+void	move_elements_back_to_a(t_node **stack_a, t_node **stack_b)
 {
-	int		i;
-	t_node	*current;
+	while (*stack_b)
+		pa(stack_a, stack_b);
+}
+
+void	sort_big_stack(t_node **stack_a, t_node **stack_b)
+{
+	int	i;
+	int	size;
+	int	max_bits;
 
 	i = 0;
-	current = *stack;
-	while (current != highest)
+	size = node_size(*stack_a);
+	max_bits = calculate_max_bits(size - 1);
+	while (i < max_bits)
 	{
+		sort_by_bit(stack_a, stack_b, i, size);
+		move_elements_back_to_a(stack_a, stack_b);
 		i++;
-		current = current->next;
 	}
-	return (i);
 }

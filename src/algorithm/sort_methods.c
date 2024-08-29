@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_methods.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:48:00 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/07/27 01:19:08 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:36:32 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,72 +25,51 @@ void	sort_three_elements(t_node **stack)
 		sa(stack);
 }
 
-void	sort_five_elements(t_node **stack_a, t_node **stack_b)
+void	move_to_top(t_node **stack_a, t_node *lowest, int size)
 {
-	int		i;
-	int		size;
-	t_node	*lowest;
 	t_node	*current;
 
+	current = *stack_a;
+	if (get_distance(stack_a, lowest) < size / 2)
+	{
+		while (current != lowest)
+		{
+			ra(stack_a);
+			current = *stack_a;
+		}
+	}
+	else
+	{
+		while (current != lowest)
+		{
+			rra(stack_a);
+			current = *stack_a;
+		}
+	}
+}
+
+void	push_lowest_to_b(t_node **stack_a, t_node **stack_b, int size)
+{
+	int		i;
+	t_node	*lowest;
+
 	i = 0;
-	size = node_size(*stack_a);
 	while (i < size - 3)
 	{
 		lowest = find_lowest(stack_a);
-		current = *stack_a;
-		if (get_distance(stack_a, lowest) < size / 2)
-		{
-			while (current != lowest)
-			{
-				ra(stack_a);
-				current = *stack_a;
-			}
-		}
-		else
-		{
-			while (current != lowest)
-			{
-				rra(stack_a);
-				current = *stack_a;
-			}
-		}
+		move_to_top(stack_a, lowest, size);
 		pb(stack_a, stack_b);
 		i++;
 	}
+}
+
+void	sort_five_elements(t_node **stack_a, t_node **stack_b)
+{
+	int		size;
+
+	size = node_size(*stack_a);
+	push_lowest_to_b(stack_a, stack_b, size);
 	sort_three_elements(stack_a);
 	while (*stack_b)
 		pa(stack_a, stack_b);
-}
-
-void	sort_big_stack(t_node **stack_a, t_node **stack_b)
-{
-	int		i;
-	int		j;
-	int		size;
-	int		max_bits;
-	int		num;
-
-	i = 0;
-	size = node_size(stack_a[0]);
-	i = size - 1;
-	max_bits = 0;
-	while ((i >> max_bits) != 0)
-		max_bits++;
-	i = 0;
-	while (i < max_bits)
-	{
-		j = 0;
-		while (j < size)
-		{
-			num = (*stack_a)->position;
-			if (((num >> i) & 1) == 1)
-				ra(stack_a);
-			else
-				pb(stack_a, stack_b);
-			j++;
-		}
-		while (stack_b[0])
-			pa(stack_a, stack_b);
-		i++;
-	}
 }
