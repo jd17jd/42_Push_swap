@@ -3,102 +3,88 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/08/30 17:20:05 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/03 18:50:33 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
-static void	bubble_sort(int *array, int size)
+/* Ordena el array de menor a mayor */
+static int	*bubble_sort(int *array, int size)
 {
+	int	*res;
 	int	i;
 	int	j;
 	int	aux;
 
+	res = aux_strcpy_int(array, size);
 	i = 0;
 	while (i < size - 1)
 	{
 		j = 0;
 		while (j < size - i - 1)
 		{
-			if (array[j] > array[j + 1])
+			if (res[j] > res[j + 1])
 			{
-				aux = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = aux;
+				aux = res[j];
+				res[j] = res[j + 1];
+				res[j + 1] = aux;
 			}
 			j++;
 		}
 		i++;
 	}
-}
-
-static int	*sorted_array(const int *array, int size)
-{
-	int	*res;
-	int	i;
-
-	res = (int *)ft_calloc(size, sizeof(int));
-	if (!res)
-	{
-		fprintf(stderr, "Error\n");
-		exit(9);
-	}
-	i = 0;
-	while (i < size)
-	{
-		res[i] = array[i];
-		i++;
-	}
-	bubble_sort(res, size);
 	return (res);
 }
 
-/* Ordena el array de posiciones */
-static void	order_array(int *not_ordered_array, int size)
+/* Da el nuevo array con todo valores positivos */
+static void	to_position_array(int *content_array, int size)
 {
 	int	i;
 	int	j;
-	int	*ordered_array;
+	int	*position_array;
 
 	i = 0;
-	ordered_array = sorted_array(not_ordered_array, size);
+	position_array = bubble_sort(content_array, size);
 	while (i < size)
 	{
 		j = 0;
 		while (j < size)
 		{
-			if (not_ordered_array[i] == ordered_array[j])
+			if (content_array[i] == position_array[j])
 			{
-				not_ordered_array[i] = j;
+				content_array[i] = j;
 				break ;
 			}
 			j++;
 		}
 		i++;
 	}
+	free(position_array);
 }
 
+/* Inicializa la pila A añadiendo nodo a nodo la info
+correspondiente de position y content */
 static void	init_a(t_node **stack_a, int *aux, int size)
 {
 	int		i;
-	int		*aux2;
+	int		*content_array;
 	t_node	*node;
 
 	i = 0;
-	aux2 = aux_strcpy_int(aux, size);
-	order_array(aux, size);
+	content_array = aux_strcpy_int(aux, size);
+	to_position_array(aux, size);
 	while (i < size)
 	{
-		node = node_new(aux[i], aux2[i]);
+		node = node_new(aux[i], content_array[i]);
 		if (node)
 			node_add_back(stack_a, node);
 		i++;
 	}
-	free(aux2);
+	free(content_array);
 }
 
 /* Inicializa las pilas (A con la info y B a null) */

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_methods.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:48:00 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/08/29 18:36:32 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/03 20:50:58 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,5 @@ void	sort_five_elements(t_node **stack_a, t_node **stack_b)
 	size = node_size(*stack_a);
 	push_lowest_to_b(stack_a, stack_b, size);
 	sort_three_elements(stack_a);
-	while (*stack_b)
-		pa(stack_a, stack_b);
+	move_elements_back_to_a(stack_a, stack_b);
 }
