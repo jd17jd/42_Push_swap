@@ -5,7 +5,6 @@ INFORMACIÓN IMPORTANTE AQUI:
 
 EXPLICACION DEL DESAROLLO DEL PROYECTO
 
-
 - OBJETIVO
     - Implementación de un algoritmo que ordene los numeros de una pila con el menor numero de operaciones posible.
 
@@ -36,46 +35,66 @@ EXPLICACION DEL DESAROLLO DEL PROYECTO
 
 
 - ALGORITMO:
-    1. Declaracion de nuestras dos estructuras de datos (A y B)
-        - Inicializar ambas pilas a NULL
+    1. DECLARACION ESTRUCTURAS DE DATOS (Listas enlazadas A y B)
+        - Inicializamos ambas pilas a NULL para evitar comportamientos indefinidos
 
-    2. Parseo de entrada:
-        - Debe haber dos o más argumentos
-            - Nº variable de argumentos
-            - Un único argumento en forma de string
-        - Error 1. Incorrect number of parameters --> Si me introducen menos de dos parametros
-        - Error 2. Unable to allocate memory --> Si la cantidad de argumentos que me pasan es muy grande
-        - Error 3. Number out of range --> Si me pasan un numero mayor a MAXINT
-        - Error 4. No number to convert --> Si me pasan algo que no sea un número
-        - Error 5. Duplicate values --> Si me pasan dos numeros iguales
-        - Error 6. Impossible to create the array --> Si no se ha podido dividir los argumentos correctamente para poderlos examinar
-        - Error 7. 2nd value is NULL. --> Si lo que hay en "" como primer argumento es nulo.
+    2. PARSEO ENTRADA
+        - VÁLIDO
+            - Si es un único argumento en forma de string
+                - ./push_swap "1 2 3 4 5"
+                    --> [[1], [2], [3], [4], [5]]
 
-    3. Inicializar StackA aplicando cada num de entrada como un nodo de StackA
+            - Si tiene un numero variable de argumentos
+                - ./push_swap 1
+                    --> [[1]]
 
-    4. Comprobar que se ha inicializado correctamente.
-        - Error 8. Failed to create list
+                - ./push_swap 1 2 3 4 5
+                    --> [[1], [2], [3], [4], [5]]
 
-    5. Algoritmo
+        - INVÁLIDO
+            - Error 1. Incorrect number of parameters --> Si me introducen menos de dos parametros
+                - ./push_swap
+
+            - Error 2. Unable to allocate memory --> Si la cantidad de argumentos que me pasan es muy grande
+                - ./push_swap 1 2 .... 99999998 99999999
+            
+            - Error 3. Number out of range --> Si me pasan un numero mayor a MAXINT
+                - ./push_swap 78 54 9999999999999999
+
+            - Error 4. No number to convert --> Si me pasan algo que no sea un número
+                - ./push_swap 2 5 k 9
+
+            - Error 5. Duplicate values --> Si me pasan dos numeros iguales
+                - ./push_swap 1 2 3 4 5 5
+
+            - Error 6. Impossible to create the array --> Si no se ha podido dividir los argumentos correctamente para poderlos examinar
+
+            - Error 7. 2nd value is NULL. --> Si lo que hay en "" como primer argumento es nulo.
+
+    3. INICIALIZAMOS STACK A
+        - Inicializamos StackA apilando cada numero de entrada como un nodo.
+
+    5. ORDENACION STACK A (ALGORITMO)
 
 
-    5. Comprobar si StackA está ordenado
-        Si no está ordenado implementar nuestro algoritmo
-        Comprobar 2 numeros. Si no estan ordedos. Rotarlos
-        Comprobar 3 numeros. Si no están ordenados, implementar nuestro simple algoritmo "ordenar arbol"
-        Si tiene más de 3 números, implementar nuestro "algoritmo turco"
-
-    6. Limpiar stack
+    6. LIMPIAR STACK
 
 
-- Reminder parseo:
+- REMINDER PARSEO:
     1. Con number_arguments() obtenemos el nº total de argumentos que buscamos introducir en la primera pila
-        - Si hay 2 argumentos quiere decir que puede ser: ./nombre_programa "23 45 67" (totales: 2, buscamos: 3)
-        - Si hay más de 2 argumentos, quiere decir que será: ./nombre_programa 23 45 67 (totales: 4, buscamos: 3)
+        - Si hay 2 argumentos quiere decir que puede ser: ./push_swap "23 45 67" (totales: 2, buscamos: 3)
+        - Si hay más de 2 argumentos, quiere decir que será: ./push_swap 23 45 67 (totales: 4, buscamos: 3)
     2. Le pasamos a aux_parse() dos parametros: El número buscado de argumentos y por debe emmpezar a hacer el parseo
         - aux_parse() llama a allocate_and_parse() para meter en un array de enteros todos los enteros de los argumentos
         - luego hacemos una comprobación para ver si los numeros están repetidos en el array o no.
+    3. Finalmente liberamos la memoria del array de caracteres y devolvemos el array de enteros resultante tras haber comprobado que es una cadena de números válida para seguir con la siguiente fase.
 
 
-- Reminder init:
-    1. Iniciamos la pila b a null y metemos todos los numeros como nodos de una lista en la pila a
+- REMINDER INIT:
+    1. Comprobamos que las pilas existan, inicializamos la pila b a null y metemos todos los números del array anterior como nodos de una lista en la pila a
+    2. Cada nodo de las pilas está compuesto por 2 elementos y 2 conexiones:
+        - Elementos: Posicion y contenido
+        - Conexiones: Detrás y delante
+    3. Para inicializar la pila A, utilizamos init_a, que ordena nuestro array de enteros cargados previamente
+
+- REMINDER 

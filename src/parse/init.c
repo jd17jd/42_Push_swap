@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/07/27 00:54:39 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/08/30 17:20:05 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static int	*sorted_array(const int *array, int size)
 	return (res);
 }
 
+/* Ordena el array de posiciones */
 static void	order_array(int *not_ordered_array, int size)
 {
 	int	i;
@@ -100,6 +101,7 @@ static void	init_a(t_node **stack_a, int *aux, int size)
 	free(aux2);
 }
 
+/* Inicializa las pilas (A con la info y B a null) */
 void	init(int *aux, int size, t_node **stack_a, t_node **stack_b)
 {
 	if (!stack_a || !stack_b)
@@ -111,24 +113,3 @@ void	init(int *aux, int size, t_node **stack_a, t_node **stack_b)
 	*stack_b = NULL;
 	init_a(stack_a, aux, size);
 }
-
-/* void	ver_lista(t_node **start)
-{
-	int		i;
-	t_node	*actual;
-	t_node	*next_node;
-
-	if (!start || !*start)
-		return ;
-	i = 0;
-	actual = *start;
-	while (actual)
-	{
-		printf("Node: %p, position: %d, content: %d\n",
-			actual, actual->position, actual->content);
-		next_node = actual->next;
-		actual = next_node;
-		i++;
-	}
-}
-*/

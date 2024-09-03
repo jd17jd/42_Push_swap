@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:15:40 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/21 14:57:33 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/08/29 21:59:20 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static int	num_occurences(int *array, int num, int size)
 	return (res);
 }
 
+/* Mete en un array de enteros todos los enteros de los argumentos */
 static int	*allocate_and_parse(char *args[], int num_args)
 {
 	int	i;
@@ -68,6 +69,7 @@ static int	*allocate_and_parse(char *args[], int num_args)
 	return (enteros);
 }
 
+/* Parsea los argumentos y comprueba que no haya repetidos */
 static int	*aux_parse(char *args[], int num_args)
 {
 	int	i;
@@ -87,6 +89,7 @@ static int	*aux_parse(char *args[], int num_args)
 	return (enteros);
 }
 
+/* Parsea los argumentos y devuelve un array de enteros */
 int	*parse(int argc, char *argv[])
 {
 	int		num_args;

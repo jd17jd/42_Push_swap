@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   aux_strcpy_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 00:45:33 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/07/27 01:06:15 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/08/30 11:55:17 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
+/* Copia un array de enteros */
 int	*aux_strcpy_int(const int *original_array, int size)
 {
 	int	*new_array;

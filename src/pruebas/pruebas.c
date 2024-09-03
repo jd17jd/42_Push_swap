@@ -3,16 +3,36 @@
 /*                                                        :::      ::::::::   */
 /*   pruebas.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/07/27 00:53:03 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/08/29 18:59:35 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 
 #include "../../inc/ft_push_swap.h"
+
+void	ver_lista(t_node **start)
+{
+	int		i;
+	t_node	*actual;
+	t_node	*next_node;
+
+	if (!start || !*start)
+		return ;
+	i = 0;
+	actual = *start;
+	while (actual)
+	{
+		printf("Node: %p, position: %d, content: %d\n",
+			actual, actual->position, actual->content);
+		next_node = actual->next;
+		actual = next_node;
+		i++;
+	}
+}
 
 void	pruebas_movements(t_node **stackA, t_node **stackB)
 {

@@ -27,7 +27,7 @@ ALGORITMO:
 
             - Si tiene numeros duplicados
                 - ./ejecutable "1 1"
-               Œ - ./ejecutable 1 2 3 4 4
+                - ./ejecutable 1 2 3 4 4
 
             - Si tiene numeros mayores a MAXINT
                 - ./ejecutable "9999999999"
