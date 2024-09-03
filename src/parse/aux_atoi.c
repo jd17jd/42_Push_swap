@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/20 19:23:05 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/07/27 01:15:31 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/03 22:15:32 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ static int	convert_number(const char *str, int i, int sign)
 {
 	long long int	res;
 	int				digit;
-
+	int				has_digit;
+	
 	res = 0;
+	has_digit = 0;
 	while (ft_isdigit(str[i]))
 	{
 		digit = str[i] - '0';
@@ -51,8 +53,9 @@ static int	convert_number(const char *str, int i, int sign)
 			exit(3);
 		}
 		i++;
+		has_digit = 1;
 	}
-	if ((!str[i] && digit == -1) || (str[i] && !ft_isdigit(str[i])))
+	if (!has_digit || (str[i] && !ft_isdigit(str[i])))
 	{
 		fprintf(stderr, "Error\n");
 		exit(4);
