@@ -35,6 +35,9 @@
 
     2. PARSEO ENTRADA
         - VÁLIDO
+            - Si no tiene argumentos
+                - ./push_swap
+
             - Si es un único argumento en forma de string
                 - ./push_swap "1 2 3 4 5"
                     --> [[1], [2], [3], [4], [5]]
@@ -47,9 +50,6 @@
                     --> [[1], [2], [3], [4], [5]]
 
         - INVÁLIDO
-            - Error 1. Incorrect number of parameters --> Si me introducen menos de dos parametros
-                - ./push_swap
-
             - Error 2. Unable to allocate memory --> Si la cantidad de argumentos que me pasan es muy grande
                 - ./push_swap 1 2 .... 99999998 99999999
             
