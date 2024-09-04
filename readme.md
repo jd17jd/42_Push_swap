@@ -63,8 +63,12 @@
                 - ./push_swap 1 2 3 4 5 5
 
             - Error 6. Impossible to create the array --> Si no se ha podido dividir los argumentos correctamente para poderlos examinar
+            or
+            2nd value is NULL. --> Si lo que hay en "" como primer argumento es nulo.
 
-            - Error 7. 2nd value is NULL. --> Si lo que hay en "" como primer argumento es nulo.
+            - Error 7. Impossible to create stacks --> Si las pilas no se han podido crear
+
+            - Error 8. Impossible to allocate memory for the int aray
 
     3. INICIALIZAMOS STACK A
         - Inicializamos StackA apilando cada numero de entrada como un nodo.

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/09/03 18:50:33 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:55:19 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ void	init(int *aux, int size, t_node **stack_a, t_node **stack_b)
 {
 	if (!stack_a || !stack_b)
 	{
-		fprintf(stderr, "Error\n");
-		exit(8);
+		write(STDERR_FILENO, "Error\n", 6);
+		exit(7);
 	}
 	*stack_a = NULL;
 	*stack_b = NULL;

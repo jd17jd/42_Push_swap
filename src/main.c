@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/28 00:05:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/21 14:56:18 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:54:11 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int argc, char *argv[])
 
 	if (argc < 2)
 	{
-		fprintf(stderr, "Error\n");
+		write(STDERR_FILENO, "Error\n", 6);
 		return (1);
 	}
 	aux = NULL;

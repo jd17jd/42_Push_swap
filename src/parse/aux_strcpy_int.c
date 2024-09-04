@@ -6,7 +6,7 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/27 00:45:33 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/08/30 11:55:17 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/04 12:57:30 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ int	*aux_strcpy_int(const int *original_array, int size)
 	int	*new_array;
 	int	j;
 
-	new_array = (int *)malloc(size * sizeof(int));
+	new_array = (int *)ft_calloc(size, sizeof(int));
 	if (!new_array)
 	{
-		fprintf(stderr, "Error\n");
-		exit(1);
+		fprintf(stderr, "Error8\n");
+		exit(8);
 	}
 	j = 0;
 	while (j < size)

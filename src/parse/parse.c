@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:15:40 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/09/03 22:33:34 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:01:15 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,12 @@ static int	*allocate_and_parse(char *args[], int num_args)
 	enteros = (int *)ft_calloc(num_args, sizeof(int));
 	if (!enteros)
 	{
-		fprintf(stderr, "Error\n");
+		write(STDERR_FILENO, "Error\n", 6);
 		exit(2);
 	}
 	while (args[i])
 	{
-		elto = ft_atoi(args[i]);
+		elto = aux_atoi(args[i]);
 		enteros[i] = elto;
 		i++;
 	}
@@ -79,7 +79,7 @@ static int	*aux_parse(char *args[], int num_args)
 	{
 		if (num_occurences(enteros, enteros[i], num_args) > 1)
 		{
-			fprintf(stderr, "Error\n");
+			write(STDERR_FILENO, "Error\n", 6);
 			exit(5);
 		}
 		i++;
@@ -97,15 +97,10 @@ int	*parse(int argc, char *argv[])
 	if (argc != 2)
 		return (res = aux_parse(argv + 1, num_args));
 	aux = ft_split(argv[1], ' ');
-	if (!aux)
+	if (!aux || !*aux)
 	{
-		fprintf(stderr, "Error\n");
+		write(STDERR_FILENO, "Error\n", 6);
 		exit(6);
-	}
-	if (!*aux)
-	{
-		fprintf(stderr, "Error\n");
-		exit(7);
 	}
 	res = aux_parse(aux, num_args);
 	free_array(aux);
