@@ -6,13 +6,12 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:07 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/03/08 03:46:06 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:15:33 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
-/* SWAP */
 void	swap(t_node **stack)
 {
 	t_node	*tmp;
@@ -29,21 +28,20 @@ void	swap(t_node **stack)
 	(*stack)->next = tmp;
 }
 
-/* sa. Rotar los 2 nºs de la cima (en stackA) */
+/* Rotate the top 2 elements of the StackA */
 void	sa(t_node **a)
 {
 	swap(a);
 	printf("sa\n");
 }
 
-/* sb. Rotar los 2 nºs de la cima (en stackB) */
+/* Rotate the top 2 elements of the StackB */
 void	sb(t_node **b)
 {
 	swap(b);
 	printf("sb\n");
 }
 
-/* ss. Ejecutar sa y sb al mismo tiempo */
 void	ss(t_node **a, t_node **b)
 {
 	swap(a);

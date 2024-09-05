@@ -6,13 +6,13 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/06 12:27:21 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/09/04 12:55:19 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/05 12:27:20 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
-/* Ordena el array de menor a mayor */
+/* Orders the array from smallest to largest */
 static int	*bubble_sort(int *array, int size)
 {
 	int	*res;
@@ -40,7 +40,7 @@ static int	*bubble_sort(int *array, int size)
 	return (res);
 }
 
-/* Da el nuevo array con todo valores positivos */
+/* Gives the new array with all positive values */
 static void	to_position_array(int *content_array, int size)
 {
 	int	i;
@@ -66,8 +66,8 @@ static void	to_position_array(int *content_array, int size)
 	free(position_array);
 }
 
-/* Inicializa la pila A añadiendo nodo a nodo la info
-correspondiente de position y content */
+/* Initializes the stack A by adding node by node
+the corresponding info of position and content */
 static void	init_a(t_node **stack_a, int *aux, int size)
 {
 	int		i;
@@ -87,7 +87,7 @@ static void	init_a(t_node **stack_a, int *aux, int size)
 	free(content_array);
 }
 
-/* Inicializa las pilas (A con la info y B a null) */
+/* Initializes the stacks (A with the info and B to null) */
 void	init(int *aux, int size, t_node **stack_a, t_node **stack_b)
 {
 	if (!stack_a || !stack_b)
