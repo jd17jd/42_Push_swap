@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:01 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/09/05 12:17:23 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/08 22:18:26 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
+/* REVERSE ROTATION */
 void	rev_rotate(t_node **stack)
 {
 	t_node	*last;
@@ -29,23 +30,24 @@ void	rev_rotate(t_node **stack)
 	*stack = last;
 }
 
-/* Bottom of StackA to top */
+/* rra. Base a la cima (en stackA) */
 void	rra(t_node **a)
 {
 	rev_rotate(a);
-	printf("rra\n");
+	ft_printf("rra\n");
 }
 
-/* Bottom of StackB to top */
+/* rrb. Base a la cima (en stackB) */
 void	rrb(t_node **b)
 {
 	rev_rotate(b);
-	printf("rrb\n");
+	ft_printf("rrb\n");
 }
 
+/* rrr */
 void	rrr(t_node **a, t_node **b)
 {
 	rev_rotate(a);
 	rev_rotate(b);
-	printf("rrr\n");
+	ft_printf("rrr\n");
 }

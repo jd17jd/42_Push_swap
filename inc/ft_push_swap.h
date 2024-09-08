@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_swap.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 19:59:15 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/08/29 19:09:12 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/08 22:32:54 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <sys/fcntl.h>
-# include <stdio.h>
 # include <string.h>
 # include <unistd.h>
 # include <sys/wait.h>
@@ -40,6 +39,7 @@ t_node	*node_last(t_node *lst);
 t_node	*node_map(t_node *lst, t_node *(*f)(t_node *), void (*del)(t_node *));
 t_node	*node_new(int position, int content);
 int		node_size(t_node *lst);
+
 /* movements */
 void	swap(t_node **stack);
 void	sa(t_node **a);
@@ -56,12 +56,14 @@ void	rrr(t_node **a, t_node **b);
 void	push(t_node **stackA, t_node **stackB);
 void	pa(t_node **a, t_node **b);
 void	pb(t_node **a, t_node **b);
+
 /* parse */
 void	init(int *aux, int size, t_node **stackA, t_node **stackB);
 int		*aux_strcpy_int(const int *original_array, int size);
 int		aux_atoi(const char *str);
 int		number_arguments(int argc, char *argv[]);
 int		*parse(int argc, char *argv[]);
+
 /* algorithm */
 void	sort_three_elements(t_node **stack);
 void	move_to_top(t_node **stack_a, t_node *lowest, int size);
@@ -76,12 +78,9 @@ t_node	*find_highest(t_node **stack);
 int		get_distance(t_node **stack, t_node *highest);
 int		is_ordered(t_node **stack);
 void	order_stack(t_node **stackA, t_node **stackB);
+
 /* frees */
 void	free_array(char **array);
 void	free_stack(t_node **stack);
-/* pruebas */
-void	pruebas_movements(t_node **stackA, t_node **stackB);
-void	pruebas_algorithm(t_node **stackA, t_node **stackB);
-void	ver_lista(t_node **start);
 
 #endif

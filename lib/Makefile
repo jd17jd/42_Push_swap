@@ -6,7 +6,7 @@
 #    By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/26 18:38:00 by jvivas-g          #+#    #+#              #
-#    Updated: 2024/09/04 18:59:52 by jvivas-g         ###   ########.fr        #
+#    Updated: 2024/09/08 22:15:15 by jvivas-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,8 @@ SOURCES = src/char/ft_isalnum.c \
           src/mem/ft_memcpy.c \
           src/mem/ft_memmove.c \
           src/mem/ft_memset.c \
+		  src/printf/ft_printf_utils.c \
+		  src/printf/ft_printf.c \
           src/str/ft_split.c \
           src/str/ft_strchr.c \
           src/str/ft_strdup.c \
@@ -93,6 +95,8 @@ OBJECTS = src/char/ft_isalnum.o \
           src/mem/ft_memcpy.o \
           src/mem/ft_memmove.o \
           src/mem/ft_memset.o \
+		  src/printf/ft_printf_utils.o \
+		  src/printf/ft_printf.o \
           src/str/ft_split.o \
           src/str/ft_strchr.o \
           src/str/ft_strdup.o \
@@ -231,6 +235,14 @@ src/mem/ft_memset.o: src/mem/ft_memset.c
 	@echo "Compiling ft_memset.c"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+src/printf/ft_printf_utils.o: src/printf/ft_printf_utils.c
+	@echo "Compiling ft_printf_utils.c"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
+src/printf/ft_printf.o: src/printf/ft_printf.c
+	@echo "Compiling ft_printf.c"
+	@$(CC) $(CFLAGS) -c $< -o $@
+
 src/str/ft_split.o: src/str/ft_split.c
 	@echo "Compiling ft_split.c"
 	@$(CC) $(CFLAGS) -c $< -o $@
@@ -309,3 +321,4 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+

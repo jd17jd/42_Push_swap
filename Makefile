@@ -6,7 +6,7 @@
 #    By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 18:03:30 by jvivas-g          #+#    #+#              #
-#    Updated: 2024/09/04 18:45:25 by jvivas-g         ###   ########.fr        #
+#    Updated: 2024/09/08 22:04:48 by jvivas-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,6 @@ SOURCES = src/main.c \
           src/parse/aux_strcpy_int.c \
           src/parse/init.c \
           src/parse/parse.c \
-          src/pruebas/pruebas.c
 
 OBJECTS = src/main.o \
           src/algorithm/order.o \
@@ -51,7 +50,6 @@ OBJECTS = src/main.o \
           src/parse/aux_strcpy_int.o \
           src/parse/init.o \
           src/parse/parse.o \
-          src/pruebas/pruebas.o
 
 # Librería
 LIBFT = lib/libft.a
@@ -154,4 +152,3 @@ $(LIBFT):
 	@$(MAKE) -C lib
 
 .PHONY: all clean fclean re
-

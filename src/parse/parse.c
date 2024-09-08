@@ -6,13 +6,13 @@
 /*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:15:40 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/09/05 12:29:03 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/04 13:01:15 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
-/* Returns the total number of args we want to introduce in the first stack */
+/* Deevuelve el nº total de args que buscamos introducir en la primera pila */
 int	number_arguments(int argc, char *argv[])
 {
 	int		res;
@@ -28,7 +28,7 @@ int	number_arguments(int argc, char *argv[])
 	return (res);
 }
 
-/* Returns the amount of times a number appears in the array */
+/* Devuelve el numero de veces que aparece un numero en un array */
 static int	num_occurences(int *array, int num, int size)
 {
 	int	i;

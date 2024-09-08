@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvivas-g <jvivas-g@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/10 13:58:03 by jvivas-g          #+#    #+#             */
-/*   Updated: 2024/09/05 12:17:20 by jvivas-g         ###   ########.fr       */
+/*   Updated: 2024/09/08 22:18:36 by jvivas-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/ft_push_swap.h"
 
+/* ROTATE */
 void	rotate(t_node **stack)
 {
 	t_node	*tmp;
@@ -30,23 +31,24 @@ void	rotate(t_node **stack)
 	tmp->next = NULL;
 }
 
-/* Top of StackA to bottom */
+/* ra. Cima a la base (en stackA) */
 void	ra(t_node **a)
 {
 	rotate(a);
-	printf("ra\n");
+	ft_printf("ra\n");
 }
 
-/* Top of StackB to bottom */
+/* rb. Cima a la base (en stackA) */
 void	rb(t_node **b)
 {
 	rotate(b);
-	printf("rb\n");
+	ft_printf("rb\n");
 }
 
+/* rr. Ejecutar ra y rb al mismo tiempo */
 void	rr(t_node **a, t_node **b)
 {
 	rotate(a);
 	rotate(b);
-	printf("rr\n");
+	ft_printf("rr\n");
 }
