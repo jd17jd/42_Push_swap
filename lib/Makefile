@@ -6,7 +6,7 @@
 #    By: jvivas-g <jvivas-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/26 18:38:00 by jvivas-g          #+#    #+#              #
-#    Updated: 2024/09/08 22:15:15 by jvivas-g         ###   ########.fr        #
+#    Updated: 2024/09/10 19:38:30 by jvivas-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,6 @@ NAME = libft.a
 # Colores
 COLOR_RESET = "\033[0m"
 COLOR_VERDE = "\033[32m"
-
-# Directorios de origen
-SRC = src
-INC = inc
 
 # Lista de archivos fuente
 SOURCES = src/char/ft_isalnum.c \
@@ -306,6 +302,8 @@ src/str-nbr/ft_atoi.o: src/str-nbr/ft_atoi.c
 src/str-nbr/ft_itoa.o: src/str-nbr/ft_itoa.c
 	@echo "Compiling ft_itoa.c"
 	@$(CC) $(CFLAGS) -c $< -o $@
+
+all: $(NAME)
 
 # Limpiar archivos objeto
 clean:
